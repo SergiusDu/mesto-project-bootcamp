@@ -1,0 +1,19 @@
+.profile__name {
+  margin: 0 0 0 29px;
+  max-width: calc(100vw - 19px * 2 - 19px - 30px);
+  grid-row: 1;
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 33px;
+  color: #FFFFFF;
+  overflow-wrap: break-word;
+}
+
+@media screen and (min-width: 619px) {
+  .profile__name {
+    margin: 0;
+  }
+}

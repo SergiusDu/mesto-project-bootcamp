@@ -1,0 +1,27 @@
+.profile__add-btn {
+  padding: 0;
+  box-sizing: border-box;
+  width: 282px;
+  aspect-ratio: 282 / 50;
+  background-color: black;
+  border: 2px solid #FFFFFF;
+  border-radius: 2px;
+  background-image: url(/images/add-button-cross.svg);
+  background-position: center;
+  background-size: 5%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  opacity: 0.82;
+}
+
+.profile__add-btn:hover {
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 619px) {
+  .profile__add-btn {
+    width: 150px;
+    aspect-ratio: 150 / 50;
+  }
+
+}

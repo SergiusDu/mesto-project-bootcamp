@@ -1,0 +1,13 @@
+.pop-up__input-group {
+  width: calc((238 / 320) * 100%);
+  margin: 75px 0 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+@media screen and (min-width: 525px) {
+  .pop-up__input-group {
+    margin: 54px 0 0;
+  }
+}

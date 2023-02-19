@@ -1,0 +1,6 @@
+.profile__name-and-edit-btn {
+  display: flex;
+  column-gap: 10px;
+  margin: 26px 0 0;
+  align-items: baseline;
+}

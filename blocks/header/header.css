@@ -1,0 +1,6 @@
+.header {
+  margin: 28px 0 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 31px;
+}

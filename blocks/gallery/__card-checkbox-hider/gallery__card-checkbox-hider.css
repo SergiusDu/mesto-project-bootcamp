@@ -1,0 +1,7 @@
+.gallery__card-checkbox-hider {
+  display: none;
+}
+
+.gallery__card-checkbox-hider:checked + .gallery__card-like-btn {
+  background-image: url(/images/like-heart-active.svg);
+}

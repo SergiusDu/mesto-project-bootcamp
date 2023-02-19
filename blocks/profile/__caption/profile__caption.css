@@ -1,0 +1,12 @@
+.profile__caption {
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+  align-self: baseline;
+}
+
+@media screen and (min-width: 619px) {
+  .profile__caption {
+    row-gap: 16px;
+  }
+}

@@ -1,0 +1,14 @@
+.profile__composition {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 619px) {
+  .profile__composition {
+    flex-direction: row;
+    column-gap: 30px;
+  }
+
+}

@@ -1,0 +1,21 @@
+.profile__edit-btn {
+  padding: 0;
+  display: inline-block;
+  grid-row: 1;
+  box-sizing: border-box;
+  min-width: 18px;
+  width: calc(18 / 320 * 100vw);
+  max-width: 22px;
+  aspect-ratio: 1;
+  background-image: url(/images/edit-profile-button-pen.svg);
+  background-size: 7.5px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: black;
+  border: 1px solid #FFFFFF;
+  cursor: pointer;
+}
+
+.profile__edit-btn:hover {
+  opacity: 0.5;
+}

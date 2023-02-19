@@ -2,9 +2,146 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Проект Место</title>
+  <link href="pages/index.css" rel="stylesheet">
 </head>
-<body>
-
+<body class="page">
+<header class="header">
+  <img alt="Mesto LOGO" class="header__logo" src="images/logo.svg">
+  <div class="header__line"></div>
+</header>
+<main class="sections">
+  <section class="profile">
+    <figure class="profile__composition">
+      <img alt="Жак Ив Кусто" class="profile__picture" src="images/kusto.png">
+      <figcaption class="profile__caption">
+        <div class="profile__name-and-edit-btn">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__edit-btn"></button>
+        </div>
+        <p class="profile__profession">Исследователь океана</p>
+      </figcaption>
+    </figure>
+    <button class="profile__add-btn"></button>
+  </section>
+  <section class="gallery">
+    <ul class="gallery__cards">
+      <li class="gallery__card">
+        <figure class="gallery__card-figure">
+          <img alt="Карачаевск"
+               class="gallery__card-image"
+               loading="lazy"
+               src="images/1_karachaevsk.png">
+          <figcaption class="gallery__card-image-caption">
+            <h2 class="gallery__card-title">Карачаевск</h2>
+            <label>
+              <input class="gallery__card-checkbox-hider" type="checkbox">
+              <span class="gallery__card-like-btn"></span>
+            </label>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="gallery__card">
+        <figure class="gallery__card-figure">
+          <img alt="Гора Эльбрус"
+               class="gallery__card-image"
+               loading="lazy"
+               src="images/2_elbrus.png">
+          <figcaption class="gallery__card-image-caption">
+            <h2 class="gallery__card-title">Гора Эльбрус</h2>
+            <label>
+              <input class="gallery__card-checkbox-hider" type="checkbox">
+              <span class="gallery__card-like-btn"></span>
+            </label>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="gallery__card">
+        <figure class="gallery__card-figure">
+          <img alt="Домбай"
+               class="gallery__card-image"
+               loading="lazy"
+               src="images/3_donbai.png">
+          <figcaption class="gallery__card-image-caption">
+            <h2 class="gallery__card-title">Домбай</h2>
+            <label>
+              <input class="gallery__card-checkbox-hider" type="checkbox">
+              <span class="gallery__card-like-btn"></span>
+            </label>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="gallery__card">
+        <figure class="gallery__card-figure">
+          <img alt="Гора Эльбрус"
+               class="gallery__card-image"
+               loading="lazy"
+               src="images/2_elbrus.png">
+          <figcaption class="gallery__card-image-caption">
+            <h2 class="gallery__card-title">Гора Эльбрус</h2>
+            <label>
+              <input class="gallery__card-checkbox-hider" type="checkbox">
+              <span class="gallery__card-like-btn"></span>
+            </label>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="gallery__card">
+        <figure class="gallery__card-figure">
+          <img alt="Домбай"
+               class="gallery__card-image"
+               loading="lazy"
+               src="images/3_donbai.png">
+          <figcaption class="gallery__card-image-caption">
+            <h2 class="gallery__card-title">Домбай</h2>
+            <label>
+              <input class="gallery__card-checkbox-hider" type="checkbox">
+              <span class="gallery__card-like-btn"></span>
+            </label>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="gallery__card">
+        <figure class="gallery__card-figure">
+          <img alt="Карачаевск"
+               class="gallery__card-image"
+               loading="lazy"
+               src="images/1_karachaevsk.png">
+          <figcaption class="gallery__card-image-caption">
+            <h2 class="gallery__card-title">Карачаевск</h2>
+            <label>
+              <input class="gallery__card-checkbox-hider" type="checkbox">
+              <span class="gallery__card-like-btn"></span>
+            </label>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+  </section>
+</main>
+<footer class="footer">
+  <p class="footer__copyright">
+    © 2020 Mesto Russia
+  </p>
+</footer>
+<div class="pop-up">
+  <form class="pop-up__form">
+    <button class="pop-up__close-btn">
+    </button>
+    <h2 class="pop-up__header">
+      Редактировать профиль
+    </h2>
+    <div class="pop-up__input-group">
+      <input aria-label="Имя" class="pop-up__text-input" maxlength="35" name="name" type="text" value="Жак-Ив Кусто">
+      <input aria-label="Профессия" class="pop-up__text-input" maxlength="35" name="profession" type="text" value="Исследователь океана">
+    </div>
+    <button class="pop-up__save-btn">Сохранить</button>
+  </form>
+</div>
+<script src="vendor/elementHandler.js"></script>
+<script src="blocks/pop-up/pop-up.js"></script>
+<script src="blocks/profile/profile.js"></script>
+<script src="pages/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,9 @@
+.gallery__card-figure {
+  margin: 0;
+  height: 100%;
+  display: grid;
+  align-items: start;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  justify-content: space-around;
+}

@@ -1,0 +1,15 @@
+.gallery__card {
+  margin: 0;
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+  aspect-ratio: 282 / 361;
+  min-width: 282px;
+}
+
+@media screen and (min-width: 490px) {
+  .gallery__card {
+    min-width: 225px;
+  }
+
+}
