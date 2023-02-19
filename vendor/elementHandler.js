@@ -29,18 +29,3 @@ class ElementHandler {
     }
   }
 }
-
-class ScrollHandler {
-  /**
-   * Блокирует Скрол
-   **/
-  static disableScroll() {
-    document.body.style.overflow = "hidden";
-  }
-  /**
-   * Разблокирует Скрол
-   **/
-  static enableScroll() {
-    document.body.style.overflow = "auto";
-  }
-}

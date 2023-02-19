@@ -26,6 +26,7 @@ class Profile {
     this.editBtn.addEventListener(
       "click",
       (e) => {
+        e.preventDefault();
         this.popUpBlock.showPopUp();
       },
       false
