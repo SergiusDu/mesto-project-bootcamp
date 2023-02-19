@@ -1,13 +1,15 @@
 .footer {
   display: block;
-  margin: 48px auto 36px 19px;
-  width: 100%;
+  margin: 48px auto 36px;
+
+  width: calc(100% - 38px);
   min-width: 282px;
   max-width: 880px;
 }
 
-@media screen and (min-width: 880px) {
+@media screen and (min-width: 910px) {
   .footer {
+    width: 100%;
     margin: 66px auto 60px;
   }
 

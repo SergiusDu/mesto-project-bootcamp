@@ -5,5 +5,7 @@
   max-width: 880px;
   min-height: 100vh;
   background-color: #000;
-  overflow: auto;
+  overflow: initial;
+  display: flex;
+  flex-direction: column;
 }
