@@ -29,7 +29,14 @@ class PopUp {
       e.preventDefault();
       this.saveNameAndProfession(this);
     });
-    this.closeBtn.addEventListener("click", this.hidePopUp.bind(this), false);
+    this.closeBtn.addEventListener(
+      "click",
+      (e) => {
+        e.preventDefault();
+        this.hidePopUp();
+      },
+      false
+    );
   }
   // Methods
   /**
@@ -37,16 +44,16 @@ class PopUp {
    * Разблокирует скрол страницы
    * **/
   hidePopUp() {
-    ScrollHandler.enableScroll();
-    this.node.style.display = "none";
+    IndexPage.enableScroll();
+    this.node.classList.remove("pop-up_opened");
   }
   /**
    * Скрывает блок для пользователя.
    * Блокирует скрол страницы.
    * **/
   showPopUp() {
-    ScrollHandler.disableScroll();
-    this.node.style.display = "flex";
+    IndexPage.disableScroll();
+    this.node.classList.add("pop-up_opened");
   }
   /**
    * Сохраняет введенные данные об имени и профессии в html блока.
