@@ -7,7 +7,7 @@
   width: calc(18 / 320 * 100vw);
   max-width: 22px;
   aspect-ratio: 1;
-  background-image: url(/images/edit-profile-button-pen.svg);
+  background-image: url('../../../images/edit-profile-button-pen.svg');
   background-size: 7.5px;
   background-position: center;
   background-repeat: no-repeat;

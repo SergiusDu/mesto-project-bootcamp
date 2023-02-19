@@ -1,22 +1,24 @@
 .pop-up__close-btn {
+  margin: 0 0 16px;
   padding: 0;
   width: 20px;
-  position: absolute;
-  top: -36px;
-  right: 0;
   aspect-ratio: 1;
   border: 0;
-  background: url(/images/pop-up-close.svg) no-repeat center;
+  background: url('../../../images/pop-up-close.svg') no-repeat center;
   background-size: cover;
   cursor: pointer;
-  justify-self: flex-end;
+  grid-row: 1;
+  grid-column: 2;
+  justify-self: end;
+  align-self: end;
 }
 
 @media screen and (min-width: 525px) {
   .pop-up__close-btn {
-    width: 32px;
-    top: -40px;
-    right: -40px;
+    margin: 0 0 8px 8px;
+    grid-row: 1;
+    grid-column: 3;
+    align-self: end;
+    justify-self: start;
   }
-
 }

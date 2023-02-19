@@ -4,7 +4,7 @@
   box-sizing: border-box;
   width: 22px;
   aspect-ratio: 22 / 19;
-  background: #FFFFFF url(/images/like-heart.svg) no-repeat center;
+  background: #FFFFFF url('../../../images/like-heart.svg') no-repeat center;
   background-size: cover;
   border: 0;
   cursor: pointer;

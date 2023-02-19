@@ -6,9 +6,9 @@
   background-color: black;
   border: 2px solid #FFFFFF;
   border-radius: 2px;
-  background-image: url(/images/add-button-cross.svg);
+  background-image: url('../../../images/add-button-cross.svg');
   background-position: center;
-  background-size: 5%;
+  background-size: 16px;
   background-repeat: no-repeat;
   cursor: pointer;
   opacity: 0.82;
@@ -22,6 +22,6 @@
   .profile__add-btn {
     width: 150px;
     aspect-ratio: 150 / 50;
+    background-size: 22px;
   }
-
 }
