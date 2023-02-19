@@ -1,4 +1,5 @@
 .gallery__card-like-btn {
+  -webkit-tap-highlight-color: transparent;
   display: block;
   padding: 0;
   box-sizing: border-box;
