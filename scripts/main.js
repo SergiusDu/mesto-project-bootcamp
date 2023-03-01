@@ -47,24 +47,24 @@ class PopUp {
    * Класс описывающий логику работы блока pop-up.
    * @param {string} selector - CSS-селектор блока.
    */
-  constructor(selector = ".pop-up") {
+  constructor(selector = ".popup") {
     // Initialization
-    this.node = ElementHandler.getByQuerySelector(".pop-up");
+    this.node = ElementHandler.getByQuerySelector(".popup");
     this.relatedProfile = undefined;
     this.closeBtn = ElementHandler.getByQuerySelector(
-      ".pop-up__close-btn",
+      ".popup__close-btn",
       this.node
     );
     this.inputName = ElementHandler.getByQuerySelector(
-      '.pop-up__text-input[name="name"]',
+      '.popup__text-input[name="name"]',
       this.node
     );
     this.inputProfession = ElementHandler.getByQuerySelector(
-      '.pop-up__text-input[name="profession"]',
+      '.popup__text-input[name="profession"]',
       this.node
     );
     this.saveBtn = ElementHandler.getByQuerySelector(
-      ".pop-up__save-btn",
+      ".popup__save-btn",
       this.node
     );
     // Setting Event Listeners
@@ -88,7 +88,7 @@ class PopUp {
    * **/
   hidePopUp() {
     IndexPage.enableScroll();
-    this.node.classList.remove("pop-up_opened");
+    this.node.classList.remove("popup_opened");
   }
   /**
    * Скрывает блок для пользователя.
@@ -96,7 +96,7 @@ class PopUp {
    * **/
   showPopUp() {
     IndexPage.disableScroll();
-    this.node.classList.add("pop-up_opened");
+    this.node.classList.add("popup_opened");
   }
   /**
    * Сохраняет введенные данные об имени и профессии в html блока.
@@ -111,7 +111,7 @@ class PopUp {
     this.hidePopUp();
   }
   /**
-   * Загружает первоначальные данные из html страницы в блок pop-up
+   * Загружает первоначальные данные из html страницы в блок popup
    * **/
   loadNameAndProfessionFromProfile() {
     this.inputName.value = this.relatedProfile.profileName.textContent;
@@ -121,8 +121,8 @@ class PopUp {
 }
 
 /**
- * Класс блока profile. На данный момент вся логика работы блока обусловлена взаимодействием с блоком pop-up.
- * @param {string} popUp - CSS селектор связанного блока pop-up.
+ * Класс блока profile. На данный момент вся логика работы блока обусловлена взаимодействием с блоком popup.
+ * @param {string} popUp - CSS селектор связанного блока popup.
  **/
 class Profile {
   constructor(popUp) {
@@ -154,7 +154,7 @@ class Profile {
   }
 
   /**
-   * Добавляет связь из блока pop-up с текущим блоком
+   * Добавляет связь из блока popup с текущим блоком
    **/
   connectWithPopUp() {
     this.popUpBlock.relatedProfile = this;
@@ -179,7 +179,7 @@ class likeBtn {
   }
 }
 const IndexPage = new Page();
-const popUp = new PopUp(".pop-up");
+const popUp = new PopUp(".popup");
 const profile = new Profile(popUp);
 
 const likeBtns = Array.from(

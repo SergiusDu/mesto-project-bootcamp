@@ -1,6 +1,5 @@
 .profile__edit-btn {
   padding: 0;
-  display: inline-block;
   grid-row: 1;
   box-sizing: border-box;
   min-width: 18px;
@@ -11,11 +10,19 @@
   background-size: 7.5px;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: black;
+  background-color: transparent;
   border: 1px solid #FFFFFF;
   cursor: pointer;
 }
 
 .profile__edit-btn:hover {
-  opacity: 0.5;
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 768px) {
+  .profile__edit-btn {
+    max-width: 24px;
+    background-size: 10px;
+  }
+
 }
