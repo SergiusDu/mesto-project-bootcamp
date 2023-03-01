@@ -1,4 +1,4 @@
-.pop-up__form {
+.popup__container {
   background: rgba(255, 255, 255, 1);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
   width: 282px;
@@ -12,9 +12,8 @@
 }
 
 @media screen and (min-width: 525px) {
-  .pop-up__form{
+  .popup__container{
     width: 430px;
     aspect-ratio: 430 / 330;
   }
-
 }

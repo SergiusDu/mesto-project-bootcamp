@@ -1,30 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <link href="images/like-heart-active.svg" rel="icon" type="image/x-icon">
   <title>Проект Место</title>
   <link href="pages/index.css" rel="stylesheet">
 </head>
 <body class="page">
 <header class="header">
-  <img alt="Mesto LOGO" class="header__logo" src="images/logo.svg">
-  <div class="header__line"></div>
+  <img alt="Логотип проекта Место" class="header__logo" src="images/logo.svg">
 </header>
 <main class="sections">
   <section class="profile">
-    <figure class="profile__composition">
+    <div class="profile__composition">
       <img alt="Жак Ив Кусто" class="profile__picture" src="images/kusto.png">
-      <figcaption class="profile__caption">
+      <div class="profile__caption">
         <div class="profile__name-and-edit-btn">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__edit-btn"></button>
+          <button aria-label="Редактировать профиль"
+                  class="profile__edit-btn"
+                  type="button"></button>
         </div>
         <p class="profile__profession">Исследователь океана</p>
-      </figcaption>
-    </figure>
-    <button class="profile__add-btn"></button>
+      </div>
+    </div>
+    <button aria-label="Добавить изображение"
+            class="profile__add-btn"
+            type="button"
+    ></button>
   </section>
   <section class="gallery">
     <ul class="gallery__cards">
@@ -36,7 +40,11 @@
                src="images/1_karachaevsk.png">
           <figcaption class="gallery__card-image-caption">
             <h2 class="gallery__card-title">Карачаевск</h2>
-            <button class="gallery__card-like-btn"></button>
+            <button
+              aria-label="Нравится"
+              class="gallery__card-like-btn"
+              type="button"
+            ></button>
           </figcaption>
         </figure>
       </li>
@@ -48,7 +56,11 @@
                src="images/2_elbrus.png">
           <figcaption class="gallery__card-image-caption">
             <h2 class="gallery__card-title">Гора Эльбрус</h2>
-            <button class="gallery__card-like-btn"></button>
+            <button
+              aria-label="Нравится"
+              class="gallery__card-like-btn"
+              type="button"
+            ></button>
           </figcaption>
         </figure>
       </li>
@@ -60,7 +72,11 @@
                src="images/3_donbai.png">
           <figcaption class="gallery__card-image-caption">
             <h2 class="gallery__card-title">Домбай</h2>
-            <button class="gallery__card-like-btn"></button>
+            <button
+              aria-label="Нравится"
+              class="gallery__card-like-btn"
+              type="button"
+            ></button>
           </figcaption>
         </figure>
       </li>
@@ -72,7 +88,11 @@
                src="images/2_elbrus.png">
           <figcaption class="gallery__card-image-caption">
             <h2 class="gallery__card-title">Гора Эльбрус</h2>
-            <button class="gallery__card-like-btn"></button>
+            <button
+              aria-label="Нравится"
+              class="gallery__card-like-btn"
+              type="button"
+            ></button>
           </figcaption>
         </figure>
       </li>
@@ -84,7 +104,11 @@
                src="images/3_donbai.png">
           <figcaption class="gallery__card-image-caption">
             <h2 class="gallery__card-title">Домбай</h2>
-            <button class="gallery__card-like-btn"></button>
+            <button
+              aria-label="Нравится"
+              class="gallery__card-like-btn"
+              type="button"
+            ></button>
           </figcaption>
         </figure>
       </li>
@@ -96,7 +120,11 @@
                src="images/1_karachaevsk.png">
           <figcaption class="gallery__card-image-caption">
             <h2 class="gallery__card-title">Карачаевск</h2>
-            <button class="gallery__card-like-btn"></button>
+            <button
+              aria-label="Нравится"
+              class="gallery__card-like-btn"
+              type="button"
+            ></button>
           </figcaption>
         </figure>
       </li>
@@ -108,17 +136,41 @@
     © 2020 Mesto Russia
   </p>
 </footer>
-<div class="pop-up">
-  <button class="pop-up__close-btn"></button>
-  <form class="pop-up__form">
-    <h2 class="pop-up__header">
+<div class="popup">
+  <button
+    aria-label="Закрыть окно"
+    class="popup__close-btn"
+    type="button"
+  ></button>
+  <form class="popup__container" name="popup">
+    <h2 class="popup__header">
       Редактировать профиль
     </h2>
-    <div class="pop-up__input-group">
-      <input aria-label="Имя" class="pop-up__text-input" maxlength="35" name="name" type="text" value="Жак-Ив Кусто">
-      <input aria-label="Профессия" class="pop-up__text-input" maxlength="35" name="profession" type="text" value="Исследователь океана">
+    <div class="popup__input-group">
+      <input
+        aria-label="Имя"
+        class="popup__text-input popup__name-input"
+        maxlength="35"
+        name="name"
+        placeholder="Введите имя"
+        type="text"
+        value="Жак-Ив Кусто">
+      <input
+        aria-label="Профессия"
+        class="popup__text-input popup__profession-input"
+        maxlength="35"
+        name="profession"
+        placeholder="Введите профессию"
+        type="text"
+        value="Исследователь океана"
+      >
     </div>
-    <button class="pop-up__save-btn">Сохранить</button>
+    <button
+      aria-label="Сохранить"
+      class="popup__save-btn"
+      type="button"
+    >Сохранить
+    </button>
   </form>
 </div>
 <script src="./scripts/main.js"></script>

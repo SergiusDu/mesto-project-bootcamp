@@ -1,6 +1,6 @@
-.pop-up {
+.popup {
   display: none;
-  grid-template-columns: auto 282px auto;
+  grid-template-columns: 1fr 282px 1fr;
   grid-template-rows: auto 322px auto;
   flex-direction: column;
   align-items: center;
@@ -14,9 +14,8 @@
 }
 
 @media screen and (min-width: 525px) {
-  .pop-up {
+  .popup {
     grid-template-columns: auto 430px auto;
     grid-template-rows: auto 330px auto;
   }
-
 }

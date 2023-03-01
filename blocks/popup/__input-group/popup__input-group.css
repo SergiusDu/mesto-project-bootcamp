@@ -1,4 +1,4 @@
-.pop-up__input-group {
+.popup__input-group {
   width: calc((238 / 320) * 100%);
   margin: 75px 0 0;
   display: flex;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (min-width: 525px) {
-  .pop-up__input-group {
+  .popup__input-group {
     margin: 54px 0 0;
   }
 }

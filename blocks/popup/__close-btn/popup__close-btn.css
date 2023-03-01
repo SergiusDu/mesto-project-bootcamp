@@ -1,4 +1,4 @@
-.pop-up__close-btn {
+.popup__close-btn {
   margin: 0 0 16px;
   padding: 0;
   width: 20px;
@@ -11,14 +11,23 @@
   grid-column: 2;
   justify-self: end;
   align-self: end;
+  transition: opacity .2s ease-in-out;
+}
+.popup__close-btn:hover {
+  opacity: .6;
 }
 
 @media screen and (min-width: 525px) {
-  .pop-up__close-btn {
+  .popup__close-btn {
     margin: 0 0 8px 8px;
-    grid-row: 1;
     grid-column: 3;
-    align-self: end;
     justify-self: start;
   }
+}
+@media screen and (min-width: 768px) {
+  .popup__close-btn {
+    width: 32px;
+    background-size: 32px;
+  }
+
 }

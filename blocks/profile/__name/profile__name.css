@@ -3,7 +3,7 @@
   max-width: calc(100vw - 19px * 2 - 19px - 30px);
   grid-row: 1;
   display: block;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', ‘Arial’, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 27px;
@@ -16,4 +16,12 @@
   .profile__name {
     margin: 0;
   }
+}
+
+@media screen and (min-width: 768px) {
+  .profile__name {
+    font-size: 42px;
+    line-height: 48px;
+  }
+
 }
