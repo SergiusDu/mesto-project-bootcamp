@@ -9,6 +9,12 @@
   color: #000000;
 }
 
+@media screen and (min-width: 525px) {
+  .popup__header {
+    margin: 34px 0 0;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .popup__header {
     max-width: 330px;

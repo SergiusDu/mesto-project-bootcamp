@@ -15,7 +15,7 @@
 
 @media screen and (min-width: 525px) {
   .popup {
-    grid-template-columns: auto 430px auto;
+    grid-template-columns: 1fr 430px 1fr;
     grid-template-rows: auto 330px auto;
   }
 }
