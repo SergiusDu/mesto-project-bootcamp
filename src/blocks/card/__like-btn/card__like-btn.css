@@ -1,0 +1,21 @@
+.card__like-btn {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-backface-visibility: hidden;
+  display: block;
+  padding: 0;
+  box-sizing: border-box;
+  width: 22px;
+  aspect-ratio: 22 / 19;
+  background: #FFFFFF url('../../../images/like-heart.svg') no-repeat center;
+  background-size: cover;
+  border: 0;
+  cursor: pointer;
+}
+
+.card__like-btn:hover {
+  opacity: 0.5;
+}
+
+.card__like-btn:active {
+  outline: 0;
+}

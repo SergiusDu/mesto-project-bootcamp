@@ -1,0 +1,3 @@
+.card__like-btn_checked {
+  background-image: url('../../../../images/like-heart-active.svg');
+}
