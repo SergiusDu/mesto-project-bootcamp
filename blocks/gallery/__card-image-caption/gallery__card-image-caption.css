@@ -1,7 +1,0 @@
-.gallery__card-image-caption {
-  max-width: 246px;
-  min-width: 85%;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
