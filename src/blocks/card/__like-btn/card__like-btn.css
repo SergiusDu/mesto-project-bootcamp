@@ -1,4 +1,4 @@
-.gallery__card-like-btn {
+.card__like-btn {
   -webkit-tap-highlight-color: transparent;
   -webkit-backface-visibility: hidden;
   display: block;
@@ -12,10 +12,10 @@
   cursor: pointer;
 }
 
-.gallery__card-like-btn:hover {
+.card__like-btn:hover {
   opacity: 0.5;
 }
 
-.gallery__card-like-btn:active {
+.card__like-btn:active {
   outline: 0;
 }

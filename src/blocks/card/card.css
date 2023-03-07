@@ -1,4 +1,4 @@
-.gallery__card {
+.card {
   margin: 0;
   background-color: white;
   border-radius: 10px;
@@ -8,7 +8,7 @@
 }
 
 @media screen and (min-width: 490px) {
-  .gallery__card {
+  .card {
     min-width: 225px;
   }
 
