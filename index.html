@@ -184,39 +184,36 @@
     ></button>
     <form class="popup__container" name="popup">
       <h2 class="popup__header">
-        Редактировать профиль
+        Новое место
       </h2>
       <div class="popup__input-group">
         <input
-          aria-label="Имя"
+          aria-label="Название"
           class="popup__text-input popup__name-input"
           maxlength="35"
           name="name"
-          placeholder="Введите имя"
-          type="text"
-          value="Жак-Ив Кусто">
+          placeholder="Название"
+          type="text">
         <input
-          aria-label="Профессия"
+          aria-label="Ссылка на картинку"
           class="popup__text-input popup__profession-input"
           maxlength="35"
-          name="profession"
-          placeholder="Введите профессию"
-          type="text"
-          value="Исследователь океана"
+          name="url"
+          placeholder="Ссылка на картинку"
+          type="url"
         >
       </div>
       <button
-        aria-label="Сохранить"
+        aria-label="Создать"
         class="popup__save-btn"
         type="button"
-      >Сохранить
+      >Создать
       </button>
     </form>
   </div>
 </template>
-
 <template class="popup__template_for_opening_image">
-  <div class="popup popup_opened popup_for-image">
+  <div class="popup popup_for-image">
     <button
       aria-label="Закрыть окно"
       class="popup__close-btn"

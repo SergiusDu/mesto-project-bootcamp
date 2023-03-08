@@ -1,5 +1,10 @@
 .popup__image-figure {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   grid-column: 2;
   grid-row: 2;
+  object-fit: cover;
+  max-width: 75vw;
+  max-height: 75vw;
 }

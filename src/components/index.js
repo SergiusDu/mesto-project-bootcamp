@@ -1,6 +1,12 @@
 "use strict";
 
-import { openPopUp, popUpHandler } from "./modal.js";
+import {
+  openPopUp,
+  editProfilePopUpHandler,
+  editProfilePopUp,
+  imagePopUpHandler,
+  imagePopUp,
+} from "./modal.js";
 function profileHandler() {
   const profileBlock = document.querySelector(".profile");
   const editProfileBtn = profileBlock.querySelector(".profile__edit-btn");
@@ -10,10 +16,10 @@ function profileHandler() {
     evt.stopPropagation();
     switch (evt.target) {
       case editProfileBtn:
-        openPopUp();
+        openPopUp(editProfilePopUp);
         break;
       case addNewPictureBtn:
-        console.log(evt.target);
+        openPopUp(imagePopUp);
         break;
       default:
         console.log("Error");
@@ -21,5 +27,6 @@ function profileHandler() {
     }
   });
 }
-popUpHandler();
+editProfilePopUpHandler();
 profileHandler();
+imagePopUpHandler();
