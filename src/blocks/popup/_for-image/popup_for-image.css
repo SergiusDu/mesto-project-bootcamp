@@ -2,4 +2,6 @@
   background: rgba(0, 0, 0, .9);
   grid-template-columns: 1fr minmax(auto, 75vw) 1fr;
   grid-template-rows: 1fr minmax(auto, 75vh) 1fr;
+  justify-content: center;
+  align-content: center;
 }

@@ -65,13 +65,10 @@ const showImagePopUp = createNewElementFromTemplate(
 );
 
 const changeImagePopUpData = function (imageURL, imageCaption) {
-  showImagePopUp.querySelector(".popup__image").src = imageURL;
+  const image = showImagePopUp.querySelector(".popup__image");
+  image.src = imageURL;
+  image.alt = imageCaption;
   showImagePopUp.querySelector(".popup__image-caption").textContent = imageCaption;
-};
-// imagePopUp.classList.add("popup_opened");
-
-const getNewImage = function (placeName, placeUrl) {
-  return { placeName, placeUrl };
 };
 const imagePopUpHandler = function () {
   const closeButton = showImagePopUp.querySelector(".popup__close-btn");

@@ -12,7 +12,9 @@ const createCard = function (name, imageUrl) {
   const imageElement = cardElement.querySelector(".card__image");
   const nameElement = cardElement.querySelector(".card__title");
   imageElement.src = imageUrl;
+  imageElement.alt = name;
   nameElement.textContent = name;
+
 };
 
 const deleteCard = function (clickedDeleteButton) {
@@ -29,7 +31,6 @@ const cardsHandler = function () {
   cardsGallery.addEventListener("click", (evt) => {
     const target = evt.target;
     const targetClassList = target.classList;
-    console.log(targetClassList);
     targetClassList.forEach((className) => {
       switch (className) {
         case "card__image":
