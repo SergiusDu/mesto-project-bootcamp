@@ -1,18 +1,14 @@
 "use strict";
 
-function createPopUp(templateSelector, newClass) {
-  const popUpTemplate = document.querySelector(templateSelector).content;
-  const popUpElement = popUpTemplate.cloneNode(true);
-  popUpElement.querySelector(".popup").classList.add(newClass);
-  document.querySelector(".page").append(popUpElement);
-  const x = document.querySelector("." + newClass);
-  return x;
-}
+import { createNewElementFromTemplate } from "./utils.mjs";
+import {createCard} from "./card.mjs";
 
-const editProfilePopUp = createPopUp(
+const editProfilePopUp = createNewElementFromTemplate(
   ".popup__template_for-edit-profile",
-  "popup_for-profile"
+  ".page",
+  "append"
 );
+editProfilePopUp.classList.add("popup_for-profile");
 const popUpNameInput = editProfilePopUp.querySelector(".popup__name-input");
 const popUpProfessionInput = editProfilePopUp.querySelector(
   ".popup__profession-input"
@@ -62,37 +58,61 @@ const editProfilePopUpHandler = function () {
   });
 };
 
-const imagePopUp = createPopUp(
+const showImagePopUp = createNewElementFromTemplate(
   ".popup__template_for_opening_image",
-  "popup_for_images"
+  ".page",
+  "append"
 );
 
+const changeImagePopUpData = function (imageURL, imageCaption) {
+  showImagePopUp.querySelector(".popup__image").src = imageURL;
+  showImagePopUp.querySelector(".popup__image-caption").textContent = imageCaption;
+};
 // imagePopUp.classList.add("popup_opened");
 
 const getNewImage = function (placeName, placeUrl) {
   return { placeName, placeUrl };
 };
 const imagePopUpHandler = function () {
-  const closeButton = imagePopUp.querySelector(".popup__close-btn");
-  const uploadButton = imagePopUp.querySelector(".popup__save-btn");
-  const addImageButton = document.querySelector(".profile__add-btn");
-  const placeName = imagePopUp.querySelector(".popup__name-input");
-  const placeUrl = imagePopUp.querySelector(".popup__profession-input"); //TODO: @kanchikov Fix class name
+  const closeButton = showImagePopUp.querySelector(".popup__close-btn");
   window.addEventListener("keydown", (evt) => {
     if (evt.key === "Escape") {
-      closePopUp(imagePopUp);
+      closePopUp(showImagePopUp);
     }
   });
-  imagePopUp.addEventListener("click", (evt) => {
+  showImagePopUp.addEventListener("click", (evt) => {
     switch (evt.target) {
+      case showImagePopUp:
       case closeButton:
-        console.log(evt.target);
-        closePopUp(imagePopUp);
+        closePopUp(showImagePopUp);
         break;
-      case uploadButton:
+    }
+  });
+};
+
+const addNewPlacePopUp = createNewElementFromTemplate(
+  ".popup__template_for-adding-place",
+  ".page",
+  "append"
+);
+
+const newPlacePopUpHandler = function () {
+  const closeButton = addNewPlacePopUp.querySelector(".popup__close-btn");
+  const addNewPlaceBtn = addNewPlacePopUp.querySelector(".popup__save-btn");
+  const placeName = addNewPlacePopUp.querySelector(".popup__name-input");
+  const placeUrl = addNewPlacePopUp.querySelector(".popup__profession-input"); //TODO: @kanchikov Fix class name
+  addNewPlacePopUp.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    evt.stopPropagation();
+    const clickedElement = evt.target;
+    switch (clickedElement) {
+      case addNewPlacePopUp:
+      case closeButton:
+        closePopUp(addNewPlacePopUp);
         break;
-      case addImageButton:
-        openPopUp(imagePopUp);
+      case addNewPlaceBtn:
+        createCard(placeName.value, placeUrl.value);
+        closePopUp(addNewPlacePopUp);
         break;
     }
   });
@@ -103,5 +123,8 @@ export {
   openPopUp,
   editProfilePopUpHandler,
   imagePopUpHandler,
-  imagePopUp,
+  changeImagePopUpData,
+  addNewPlacePopUp,
+  showImagePopUp,
+  newPlacePopUpHandler
 };

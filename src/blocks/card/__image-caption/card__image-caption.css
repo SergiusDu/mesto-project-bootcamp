@@ -1,7 +1,8 @@
 .card__image-caption {
-  max-width: 246px;
-  min-width: 85%;
-  display: flex;
-  justify-content: space-between;
+  margin: 0 21px;
+  width: 85%;
+  display: grid;
+  grid-template-columns: auto 22px;
+  column-gap: 20px;
   align-items: baseline;
 }

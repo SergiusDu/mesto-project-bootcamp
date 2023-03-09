@@ -10,6 +10,7 @@
   background-size: cover;
   border: 0;
   cursor: pointer;
+  grid-column: 2;
 }
 
 .card__like-btn:hover {

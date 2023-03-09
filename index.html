@@ -34,6 +34,7 @@
     <ul class="gallery__cards">
       <li class="card">
         <figure class="card__figure">
+          <button aria-label="Удалить место" class="card__delete-btn" type="button"></button>
           <img alt="Карачаевск"
                class="card__image"
                loading="lazy"
@@ -175,7 +176,7 @@
     </form>
   </div>
 </template>
-<template class="popup__template_for-adding-image">
+<template class="popup__template_for-adding-place">
   <div class="popup">
     <button
       aria-label="Закрыть окно"
@@ -189,15 +190,13 @@
       <div class="popup__input-group">
         <input
           aria-label="Название"
-          class="popup__text-input popup__name-input"
-          maxlength="35"
+          class="popup__name-input"
           name="name"
           placeholder="Название"
           type="text">
         <input
           aria-label="Ссылка на картинку"
           class="popup__text-input popup__profession-input"
-          maxlength="35"
           name="url"
           placeholder="Ссылка на картинку"
           type="url"
@@ -227,6 +226,25 @@
     </figure>
   </div>
 </template>
-<script src="./src/components/index.js" type="module"></script>
+<template class="card__template">
+  <li class="card">
+    <figure class="card__figure">
+      <button aria-label="Удалить место" class="card__delete-btn" type="button"></button>
+      <img alt=""
+           class="card__image"
+           loading="lazy"
+           src="">
+      <figcaption class="card__image-caption">
+        <h2 class="card__title"></h2>
+        <button
+          aria-label="Нравится"
+          class="card__like-btn"
+          type="button"
+        ></button>
+      </figcaption>
+    </figure>
+  </li>
+</template>
+<script src="src/components/index.mjs" type="module"></script>
 </body>
 </html>
