@@ -46,7 +46,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html", // путь к файлу index.html
+      template: "./src/index.html",
+      filename: "index.html",
+      publicPath: "/my-repo-name/",
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),

@@ -1,11 +1,13 @@
 {
   "name": "mesto-project-bootcamp",
+  "homepage": "https://github.com/SergiusDu/mesto-project-bootcamp",
   "version": "1.0.0",
   "description": "Эта страница представляет собой галерею изображений с возможностью добавления и просмотра изображений, а также функции управления профилем пользователя.",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,6 @@
   "bugs": {
     "url": "https://github.com/SergiusDu/mesto-project-bootcamp/issues"
   },
-  "homepage": "https://github.com/SergiusDu/mesto-project-bootcamp#readme",
   "dependencies": {
     "core-js": "^3.29.0",
     "jquery": "^3.6.4"
@@ -30,6 +31,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.3",
     "cssnano": "^5.1.15",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.3",
     "postcss-loader": "^7.0.2",
