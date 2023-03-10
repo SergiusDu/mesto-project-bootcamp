@@ -5,16 +5,15 @@
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <link href="images/like-heart-active.svg" rel="icon" type="image/x-icon">
   <title>Проект Место</title>
-  <link href="pages/index.css" rel="stylesheet">
 </head>
 <body class="page">
 <header class="header">
-  <img alt="Логотип проекта Место" class="header__logo" src="images/logo.svg">
+  <img alt="Логотип проекта Место" class="header__logo" src="<%=require('./images/logo.svg')%>">
 </header>
 <main class="sections">
   <section class="profile">
     <div class="profile__composition">
-      <img alt="Жак Ив Кусто" class="profile__picture" src="images/kusto.png">
+      <img alt="Жак Ив Кусто" class="profile__picture" src="<%=require('./images/kusto.png')%>">
       <div class="profile__caption">
         <div class="profile__name-and-edit-btn">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -147,6 +146,5 @@
     </figure>
   </li>
 </template>
-<script src="components/index.mjs" type="module"></script>
 </body>
 </html>
