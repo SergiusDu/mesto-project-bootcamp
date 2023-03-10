@@ -48,7 +48,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "index.html",
-      publicPath: "/my-repo-name/",
+      publicPath: "/mesto-project-bootcamp/",
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
