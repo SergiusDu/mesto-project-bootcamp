@@ -10,6 +10,7 @@ module.exports = {
     filename: "main.js",
     publicPath: "",
   },
+  devtool: "source-map",
   mode: "development",
   devServer: {
     static: path.resolve(__dirname, "./dist"),
@@ -48,7 +49,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "index.html",
-      publicPath: "/mesto-project-bootcamp/",
+      publicPath: "auto",
+      favicon: "./src/images/like-heart-active.svg",
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),

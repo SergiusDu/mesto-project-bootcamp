@@ -3,11 +3,7 @@
 import { createNewElementFromTemplate } from "./utils.mjs";
 import {createCard} from "./card.mjs";
 
-const editProfilePopUp = createNewElementFromTemplate(
-  ".popup__template_for-edit-profile",
-  ".page",
-  "append"
-);
+const editProfilePopUp = document.querySelector('.popup_for-editing-profile');
 editProfilePopUp.classList.add("popup_for-profile");
 const popUpNameInput = editProfilePopUp.querySelector(".popup__name-input");
 const popUpProfessionInput = editProfilePopUp.querySelector(
@@ -58,11 +54,7 @@ const editProfilePopUpHandler = function () {
   });
 };
 
-const showImagePopUp = createNewElementFromTemplate(
-  ".popup__template_for_opening_image",
-  ".page",
-  "append"
-);
+const showImagePopUp = document.querySelector('.popup_for-image');
 
 const changeImagePopUpData = function (imageURL, imageCaption) {
   const image = showImagePopUp.querySelector(".popup__image");
@@ -87,11 +79,7 @@ const imagePopUpHandler = function () {
   });
 };
 
-const addNewPlacePopUp = createNewElementFromTemplate(
-  ".popup__template_for-adding-place",
-  ".page",
-  "append"
-);
+const addNewPlacePopUp = document.querySelector('.popup_for-adding-place');
 
 const newPlacePopUpHandler = function () {
   const closeButton = addNewPlacePopUp.querySelector(".popup__close-btn");
