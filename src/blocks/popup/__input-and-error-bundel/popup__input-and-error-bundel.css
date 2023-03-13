@@ -1,0 +1,5 @@
+.popup__input-and-error-bundel {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}

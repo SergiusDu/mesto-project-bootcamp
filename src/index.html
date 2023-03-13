@@ -44,32 +44,43 @@
       class="popup__close-btn"
       type="button"
     ></button>
-    <form class="popup__container" name="popup">
+    <form class="popup__form" name="popup">
       <h2 class="popup__header">
         Редактировать профиль
       </h2>
-      <div class="popup__input-group">
-        <input
-          aria-label="Имя"
-          class="popup__text-input popup__name-input"
-          maxlength="35"
-          name="name"
-          placeholder="Введите имя"
-          type="text"
-          value="Жак-Ив Кусто">
-        <input
-          aria-label="Профессия"
-          class="popup__text-input popup__profession-input"
-          maxlength="35"
-          name="profession"
-          placeholder="Введите профессию"
-          type="text"
-          value="Исследователь океана"
-        >
+      <div class="popup__input-container">
+        <div class="popup__input-and-error-bundel">
+          <input
+            aria-label="Имя"
+            class="popup__input popup__name-input"
+            id="popup__name-input"
+            maxlength="40"
+            minlength="2"
+            name="name"
+            placeholder="Введите имя"
+            required
+            type="text"
+          >
+          <span class="popup__error popup__name-input-error"></span>
+        </div>
+        <div class="popup__input-and-error-bundel">
+          <input
+            aria-label="Профессия"
+            class="popup__input popup__profession-input"
+            id="popup__profession-input"
+            maxlength="200"
+            minlength="2"
+            name="profession"
+            placeholder="Введите профессию"
+            required
+            type="text"
+          >
+          <span class="popup__error popup__profession-input-error"></span>
+        </div>
       </div>
       <button
         aria-label="Сохранить"
-        class="popup__save-btn"
+        class="popup__button"
         type="button"
       >Сохранить
       </button>
@@ -81,28 +92,41 @@
       class="popup__close-btn"
       type="button"
     ></button>
-    <form class="popup__container" name="popup">
+    <form class="popup__form" name="popup">
       <h2 class="popup__header">
         Новое место
       </h2>
-      <div class="popup__input-group">
-        <input
-          aria-label="Название"
-          class="popup__text-input popup__name-input"
-          name="name"
-          placeholder="Название"
-          type="text">
-        <input
+      <div class="popup__input-container">
+        <div class="popup__input-and-error-bundel">
+          <input
+            aria-label="Название"
+            class="popup__input popup__place-name-input"
+            id="popup__place-name-input"
+            maxlength="30"
+            minlength="2"
+            name="name"
+            placeholder="Название"
+            required
+            type="text"
+          >
+          <span class="popup__error popup__place-name-input-error"></span>
+        </div>
+        <div class="popup__input-and-error-bundel">
+          <input
           aria-label="Ссылка на картинку"
-          class="popup__text-input popup__profession-input"
+          class="popup__input popup__place-url-input"
+          id="popup__place-url-input"
           name="url"
           placeholder="Ссылка на картинку"
+          required
           type="url"
         >
+          <span class="popup__error popup__place-url-input-error"></span>
+        </div>
       </div>
       <button
         aria-label="Создать"
-        class="popup__save-btn"
+        class="popup__button"
         type="button"
       >Создать
       </button>
