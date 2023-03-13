@@ -1,5 +1,5 @@
 .popup__header {
-  margin: 25px 0 0;
+  margin: 0;
   max-width: 238px;
   font-family: 'Inter', ‘Arial’, sans-serif;
   font-style: normal;
@@ -7,12 +7,6 @@
   font-size: 18px;
   line-height: 22px;
   color: #000000;
-}
-
-@media screen and (min-width: 525px) {
-  .popup__header {
-    margin: 34px 0 0;
-  }
 }
 
 @media screen and (min-width: 768px) {

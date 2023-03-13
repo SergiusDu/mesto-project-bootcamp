@@ -1,4 +1,4 @@
-.popup__text-input {
+.popup__input {
   width: 100%;
   padding: 0 0 13px;
   font-family: 'Inter', ‘Arial’, sans-serif;
@@ -9,4 +9,8 @@
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   color: #000000;
+}
+
+.popup__input:focus {
+  outline: none;
 }

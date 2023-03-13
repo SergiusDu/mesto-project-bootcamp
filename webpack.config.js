@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require("webpack");
 
 module.exports = {
   entry: { main: "./src/index.js" },
@@ -10,13 +11,16 @@ module.exports = {
     filename: "main.js",
     publicPath: "",
   },
+  // optimization: {
+  //   minimize: false,
+  // },
   devtool: "source-map",
   mode: "development",
   devServer: {
     static: path.resolve(__dirname, "./dist"),
     compress: true,
     port: 8080,
-    open: true,
+    // open: true,
   },
   module: {
     rules: [
@@ -54,5 +58,8 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
+    new webpack.SourceMapDevToolPlugin({
+      filename: "[file].map",
+    }),
   ],
 };

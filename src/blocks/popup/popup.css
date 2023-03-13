@@ -1,6 +1,7 @@
 .popup {
   opacity: 0;
-  display: none;
+  display: grid;
+  visibility: hidden;
   grid-template-columns: 1fr 282px 1fr;
   grid-template-rows: auto 322px auto;
   flex-direction: column;

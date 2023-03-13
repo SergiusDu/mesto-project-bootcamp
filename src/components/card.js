@@ -1,7 +1,7 @@
 "use strict";
 
-import { createNewElementFromTemplate } from "./utils.mjs";
-import {openPopUp, showImagePopUp, changeImagePopUpData} from "./modal.mjs";
+import { createNewElementFromTemplate } from "./utils.js";
+import { openPopUp, showImagePopUp, changeImagePopUpData } from "./modal.js";
 
 const createCard = function (name, imageUrl) {
   const cardElement = createNewElementFromTemplate(
@@ -14,7 +14,6 @@ const createCard = function (name, imageUrl) {
   imageElement.src = imageUrl;
   imageElement.alt = name;
   nameElement.textContent = name;
-
 };
 
 const deleteCard = function (clickedDeleteButton) {
@@ -35,7 +34,9 @@ const cardsHandler = function () {
       switch (className) {
         case "card__image":
           const imageUrl = target.src;
-          const imageCaption = target.closest('.card').querySelector('.card__image-caption').textContent;
+          const imageCaption = target
+            .closest(".card")
+            .querySelector(".card__image-caption").textContent;
           changeImagePopUpData(imageUrl, imageCaption);
           openPopUp(showImagePopUp);
           break;
@@ -49,4 +50,4 @@ const cardsHandler = function () {
     });
   });
 };
-export {createCard, createCardsFromList, cardsHandler};
+export { createCard, createCardsFromList, cardsHandler };

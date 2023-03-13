@@ -1,0 +1,16 @@
+.popup_state_opened {
+  animation: popup__fade-in .2s ease-in;
+  visibility: visible;
+  opacity: 1;
+}
+
+@keyframes popup__fade-in {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}

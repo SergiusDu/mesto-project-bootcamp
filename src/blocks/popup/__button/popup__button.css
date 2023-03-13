@@ -1,5 +1,4 @@
-.popup__save-btn {
-  margin: 45px 0 0;
+.popup__button {
   padding: 0;
   width: calc((238 / 282) * 100%);
   aspect-ratio: 238 / 46;
@@ -16,19 +15,18 @@
   cursor: pointer;
 }
 
-.popup__save-btn:hover {
+.popup__button:hover {
   opacity: 0.8;
 }
 
 @media screen and (min-width: 525px) {
-  .popup__save-btn {
-    margin: 48px 0 0;
+  .popup__button {
     width: calc((358 / 430) * 100%);
     aspect-ratio: 358 / 50;
   }
 }
 @media screen and (min-width: 768px) {
-  .popup__save-btn {
+  .popup__button {
     font-size: 18px;
     line-height: 22px;
   }

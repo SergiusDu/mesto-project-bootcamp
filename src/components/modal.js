@@ -1,10 +1,9 @@
 "use strict";
 
-import { createNewElementFromTemplate } from "./utils.mjs";
-import {createCard} from "./card.mjs";
+import { createCard } from "./card.js";
+import { hasInvalidInput } from "./validate.js";
 
-const editProfilePopUp = document.querySelector('.popup_for-editing-profile');
-editProfilePopUp.classList.add("popup_for-profile");
+const editProfilePopUp = document.querySelector(".popup_for-editing-profile");
 const popUpNameInput = editProfilePopUp.querySelector(".popup__name-input");
 const popUpProfessionInput = editProfilePopUp.querySelector(
   ".popup__profession-input"
@@ -23,17 +22,26 @@ const openPopUp = function (popUp) {
   if (popUp === editProfilePopUp) {
     syncDataWithProfile();
   }
-  popUp.classList.add("popup_opened");
+  popUp.classList.remove("popup_state_closed");
+  popUp.classList.add("popup_state_opened");
+  setEventListenerToClosePopUpWithEscape();
 };
 const closePopUp = function (popUp) {
-  popUp.classList.remove("popup_opened");
+  popUp.classList.add("popup_state_closed");
+  popUp.classList.remove("popup_state_opened");
 };
 const editProfilePopUpHandler = function () {
   const closeButton = editProfilePopUp.querySelector(".popup__close-btn");
-  const saveButton = editProfilePopUp.querySelector(".popup__save-btn");
+  const saveButton = editProfilePopUp.querySelector(".popup__button");
   window.addEventListener("keydown", (evt) => {
-    if (evt.key === "Escape") {
-      closePopUp(editProfilePopUp);
+    switch (evt.key) {
+      case "Enter":
+        const inputList = [popUpNameInput, popUpProfessionInput];
+        if (!hasInvalidInput(inputList)) {
+          updateProfileData();
+          closePopUp(editProfilePopUp);
+        }
+        break;
     }
   });
   editProfilePopUp.addEventListener("click", (evt) => {
@@ -54,21 +62,28 @@ const editProfilePopUpHandler = function () {
   });
 };
 
-const showImagePopUp = document.querySelector('.popup_for-image');
+const showImagePopUp = document.querySelector(".popup_for-image");
 
 const changeImagePopUpData = function (imageURL, imageCaption) {
   const image = showImagePopUp.querySelector(".popup__image");
   image.src = imageURL;
   image.alt = imageCaption;
-  showImagePopUp.querySelector(".popup__image-caption").textContent = imageCaption;
+  showImagePopUp.querySelector(".popup__image-caption").textContent =
+    imageCaption;
+};
+const setEventListenerToClosePopUpWithEscape = function () {
+  window.addEventListener("keydown", closePopUpWithEscape);
+};
+const closePopUpWithEscape = function (evt) {
+  const openedPopUp = document.querySelector(".popup_state_opened");
+  if (evt.key === "Escape" && openedPopUp) {
+    closePopUp(openedPopUp);
+    window.removeEventListener("keydown", closePopUpWithEscape);
+  }
 };
 const imagePopUpHandler = function () {
   const closeButton = showImagePopUp.querySelector(".popup__close-btn");
-  window.addEventListener("keydown", (evt) => {
-    if (evt.key === "Escape") {
-      closePopUp(showImagePopUp);
-    }
-  });
+  setEventListenerToClosePopUpWithEscape(showImagePopUp);
   showImagePopUp.addEventListener("click", (evt) => {
     switch (evt.target) {
       case showImagePopUp:
@@ -79,13 +94,13 @@ const imagePopUpHandler = function () {
   });
 };
 
-const addNewPlacePopUp = document.querySelector('.popup_for-adding-place');
+const addNewPlacePopUp = document.querySelector(".popup_for-adding-place");
 
 const newPlacePopUpHandler = function () {
   const closeButton = addNewPlacePopUp.querySelector(".popup__close-btn");
-  const addNewPlaceBtn = addNewPlacePopUp.querySelector(".popup__save-btn");
-  const placeName = addNewPlacePopUp.querySelector(".popup__name-input");
-  const placeUrl = addNewPlacePopUp.querySelector(".popup__profession-input"); //TODO: @kanchikov Fix class name
+  const addNewPlaceBtn = addNewPlacePopUp.querySelector(".popup__button");
+  const placeName = addNewPlacePopUp.querySelector(".popup__place-name-input");
+  const placeUrl = addNewPlacePopUp.querySelector(".popup__place-url-input");
   addNewPlacePopUp.addEventListener("click", (evt) => {
     evt.preventDefault();
     evt.stopPropagation();
@@ -101,6 +116,17 @@ const newPlacePopUpHandler = function () {
         break;
     }
   });
+  window.addEventListener("keydown", (evt) => {
+    switch (evt.key) {
+      case "Enter":
+        const inputList = [placeName, placeUrl];
+        if (!hasInvalidInput(inputList)) {
+          createCard(placeName.value, placeUrl.value);
+          closePopUp(addNewPlacePopUp);
+        }
+        break;
+    }
+  });
 };
 
 export {
@@ -111,5 +137,5 @@ export {
   changeImagePopUpData,
   addNewPlacePopUp,
   showImagePopUp,
-  newPlacePopUpHandler
+  newPlacePopUpHandler,
 };

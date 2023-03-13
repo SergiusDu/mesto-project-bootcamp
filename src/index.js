@@ -33,8 +33,9 @@ import {
   imagePopUpHandler,
   addNewPlacePopUp,
   newPlacePopUpHandler,
-} from "./components/modal.mjs";
-import { createCardsFromList, cardsHandler } from "./components/card.mjs";
+} from "./components/modal.js";
+import { createCardsFromList, cardsHandler } from "./components/card.js";
+import { enableValidation } from "./components/validate.js";
 
 function profileHandler() {
   const profileBlock = document.querySelector(".profile");
@@ -60,5 +61,12 @@ profileHandler();
 imagePopUpHandler();
 newPlacePopUpHandler();
 cardsHandler();
-
+enableValidation({
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+});
 createCardsFromList(initialCards);
