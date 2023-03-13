@@ -1,19 +1,17 @@
 "use strict";
 
-import { createNewElementFromTemplate } from "./utils.js";
 import { openPopUp, showImagePopUp, changeImagePopUpData } from "./modal.js";
 
 const createCard = function (name, imageUrl) {
-  const cardElement = createNewElementFromTemplate(
-    ".card__template",
-    ".gallery__cards",
-    "prepend"
-  );
-  const imageElement = cardElement.querySelector(".card__image");
-  const nameElement = cardElement.querySelector(".card__title");
+  const cardTemplate = document.querySelector(".card__template").content;
+  const clonedTemplate = cardTemplate.cloneNode(true);
+  const imageElement = clonedTemplate.querySelector(".card__image");
+  const nameElement = clonedTemplate.querySelector(".card__title");
   imageElement.src = imageUrl;
   imageElement.alt = name;
   nameElement.textContent = name;
+  const placeToInsert = document.querySelector(".gallery__cards");
+  placeToInsert.prepend(clonedTemplate);
 };
 
 const deleteCard = function (clickedDeleteButton) {
