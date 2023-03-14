@@ -11,9 +11,9 @@ module.exports = {
     filename: "main.js",
     publicPath: "",
   },
-  // optimization: {
-  //   minimize: false,
-  // },
+  optimization: {
+    minimize: false,
+  },
   devtool: "source-map",
   mode: "development",
   devServer: {
@@ -24,11 +24,11 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        use: "babel-loader",
-        exclude: "/node_modules/",
-      },
+      // {
+      //   test: /\.js$/,
+      //   use: "babel-loader",
+      //   exclude: "/node_modules/",
+      // },
       {
         test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
         type: "asset/resource",

@@ -81,7 +81,7 @@ const closePopUpWithEscape = function (evt) {
     window.removeEventListener("keydown", closePopUpWithEscape);
   }
 };
-const imagePopUpHandler = function () {
+const handleImagePopUpBlock = function () {
   const closeButton = showImagePopUp.querySelector(".popup__close-btn");
   setEventListenerToClosePopUpWithEscape(showImagePopUp);
   showImagePopUp.addEventListener("click", (evt) => {
@@ -133,7 +133,7 @@ export {
   editProfilePopUp,
   openPopUp,
   editProfilePopUpHandler,
-  imagePopUpHandler,
+  handleImagePopUpBlock,
   changeImagePopUpData,
   addNewPlacePopUp,
   showImagePopUp,

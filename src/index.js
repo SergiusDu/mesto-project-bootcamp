@@ -30,14 +30,14 @@ import {
   openPopUp,
   editProfilePopUpHandler,
   editProfilePopUp,
-  imagePopUpHandler,
+  handleImagePopUpBlock,
   addNewPlacePopUp,
   newPlacePopUpHandler,
 } from "./components/modal.js";
 import { createCardsFromList, cardsHandler } from "./components/card.js";
 import { enableValidation } from "./components/validate.js";
 
-function profileHandler() {
+function handleProfileBlock() {
   const profileBlock = document.querySelector(".profile");
   const editProfileBtn = profileBlock.querySelector(".profile__edit-btn");
   const addNewPictureBtn = profileBlock.querySelector(".profile__add-btn");
@@ -57,8 +57,8 @@ function profileHandler() {
   });
 }
 editProfilePopUpHandler();
-profileHandler();
-imagePopUpHandler();
+handleProfileBlock();
+handleImagePopUpBlock();
 newPlacePopUpHandler();
 cardsHandler();
 enableValidation({
