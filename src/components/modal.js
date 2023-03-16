@@ -187,6 +187,12 @@ const closeButtons = document.querySelectorAll(".popup__close-btn");
 closeButtons.forEach((button) => {
   const popup = button.closest(".popup");
   button.addEventListener("click", () => closePopUp(popup));
+  popup.addEventListener("click", (event) => {
+    event.stopPropagation();
+    if (event.target.classList.contains("popup")) {
+      closePopUp(popup);
+    }
+  });
 });
 function closeOpenedPopUp(event) {
   if (event.key === "Escape") {
