@@ -12,7 +12,9 @@
 <main class="sections">
   <section class="profile">
     <div class="profile__composition">
-      <img alt="Жак Ив Кусто" class="profile__picture" src="<%=require('./images/kusto.png')%>">
+      <button aria-label="Сменить изображение" class="profile__change-avatar-button" type="button">
+        <img alt="Жак Ив Кусто" class="profile__picture" src="<%=require('./images/kusto.png')%>">
+      </button>
       <div class="profile__caption">
         <div class="profile__name-and-edit-btn">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -81,7 +83,39 @@
       <button
         aria-label="Сохранить"
         class="popup__button"
-        type="button"
+        type="submit"
+      >Сохранить
+      </button>
+    </form>
+  </div>
+  <div class="popup popup_for-updating-profile-avatar">
+    <button
+      aria-label="Закрыть окно"
+      class="popup__close-btn"
+      type="button"
+    ></button>
+    <form class="popup__form popup__form-for-updating-profile-avatar" name="popup__form-for-updating-profile-avatar">
+      <h2 class="popup__header">
+        Обновить аватар
+      </h2>
+      <div class="popup__input-container">
+        <div class="popup__input-and-error-bundel">
+          <input
+            aria-label="Ссылка на новый аватар"
+            class="popup__input popup__avatar-link-input"
+            id="popup__avatar-link-input"
+            name="name"
+            placeholder="Введите адрес вашего будущего аватара"
+            required
+            type="url"
+          >
+          <span class="popup__error popup__avatar-link-input-error"></span>
+        </div>
+      </div>
+      <button
+        aria-label="Сохранить"
+        class="popup__button"
+        type="submit"
       >Сохранить
       </button>
     </form>
@@ -154,11 +188,14 @@
            src="">
       <figcaption class="card__image-caption">
         <h2 class="card__title"></h2>
-        <button
-          aria-label="Нравится"
-          class="card__like-btn"
-          type="button"
-        ></button>
+        <div class="card__likes-container">
+          <button
+            aria-label="Нравится"
+            class="card__like-btn"
+            type="button"
+          ></button>
+          <span class="card__likes-count">0</span>
+        </div>
       </figcaption>
     </figure>
   </li>

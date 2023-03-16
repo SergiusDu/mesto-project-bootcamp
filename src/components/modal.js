@@ -2,62 +2,94 @@
 
 import { createCard } from "./card.js";
 import { hasInvalidInput } from "./validate.js";
-
-const editProfilePopUp = document.querySelector(".popup_for-editing-profile");
-const popUpNameInput = editProfilePopUp.querySelector(".popup__name-input");
-const popUpProfessionInput = editProfilePopUp.querySelector(
-  ".popup__profession-input"
-);
-const profileName = document.querySelector(".profile__name");
-const profileProfession = document.querySelector(".profile__profession");
-const syncDataWithProfile = function () {
-  popUpNameInput.value = profileName.textContent;
-  popUpProfessionInput.value = profileProfession.textContent;
-};
-const updateProfileData = function () {
-  profileName.textContent = popUpNameInput.value;
-  profileProfession.textContent = popUpProfessionInput.value;
-};
-const openPopUp = function (popUp) {
-  if (popUp === editProfilePopUp) {
-    syncDataWithProfile();
-  }
+import {
+  getLocalProfileObject,
+  updateProfileFromServer,
+  updateProfileInfoOnPage,
+  setLocalProfileObject,
+  localProfileObject,
+} from "./profile.js";
+import {
+  getProfileDataFromServer,
+  uploadUserProfileToServer,
+  uploadNewAvatar,
+  setLikeOnCard,
+  removeLikeFromCard,
+} from "./api.js";
+function resetPopUp(popUp) {
+  const popupInputs = popUp.querySelectorAll(".popup__input");
+  popupInputs.forEach((inputElement) => {
+    inputElement.value = "";
+    inputElement.classList.remove("popup__input_type_error");
+  });
+  const popupErrors = popUp.querySelectorAll(".popup__error");
+  popupErrors.forEach((errorElement) => {
+    errorElement.classList.remove(".popup__error_visible");
+    errorElement.textContent = "";
+  });
+}
+function openPopUp(popUp) {
   popUp.classList.remove("popup_state_closed");
   popUp.classList.add("popup_state_opened");
-  setEventListenerToClosePopUpWithEscape();
-};
-const closePopUp = function (popUp) {
+  window.addEventListener("keydown", closeOpenedPopUp);
+}
+function closePopUp(popUp) {
   popUp.classList.add("popup_state_closed");
   popUp.classList.remove("popup_state_opened");
-};
-const editProfilePopUpHandler = function () {
+  resetPopUp(popUp);
+  window.removeEventListener("keydown", closeOpenedPopUp);
+}
+
+async function setActualProfileDataToPopup() {
+  const profileDataFromServer = await getProfileDataFromServer();
+  popUpNameInput.value = profileDataFromServer.name;
+  popUpAboutInput.value = profileDataFromServer.about;
+}
+async function uploadProfileData(profileObject) {
+  try {
+    if (profileObject.avatar === "") {
+      profileObject.avatar = getLocalProfileObject().avatar;
+    }
+    await uploadUserProfileToServer(
+      profileObject.name,
+      profileObject.about,
+      profileObject.avatar
+    );
+    await updateProfileFromServer();
+  } catch (error) {
+    console.log(
+      `Ошибка обновления информации профиля. Ошибка: ${error.message}`
+    );
+  }
+}
+
+function showLoadingAnimationOnButton(buttonElement) {
+  buttonElement.classList.add("popup__button_loading");
+}
+function hideLoadingAnimationOnButton(buttonElement) {
+  buttonElement.classList.remove("popup__button_loading");
+}
+const editProfilePopUp = document.querySelector(".popup_for-editing-profile");
+const popUpNameInput = editProfilePopUp.querySelector(".popup__name-input");
+const popUpAboutInput = editProfilePopUp.querySelector(
+  ".popup__profession-input"
+);
+const handleEditProfilePopUp = function () {
   const closeButton = editProfilePopUp.querySelector(".popup__close-btn");
   const saveButton = editProfilePopUp.querySelector(".popup__button");
-  window.addEventListener("keydown", (evt) => {
-    switch (evt.key) {
-      case "Enter":
-        const inputList = [popUpNameInput, popUpProfessionInput];
-        if (!hasInvalidInput(inputList)) {
-          updateProfileData();
-          closePopUp(editProfilePopUp);
-        }
-        break;
-    }
-  });
-  editProfilePopUp.addEventListener("click", (evt) => {
-    evt.stopPropagation();
+  const editProfilePopUpForm = editProfilePopUp.querySelector(".popup__form");
+  editProfilePopUpForm.addEventListener("submit", async function (evt) {
     evt.preventDefault();
-    switch (evt.target) {
-      case editProfilePopUp:
-      case closeButton:
-        closePopUp(editProfilePopUp);
-        break;
-      case saveButton:
-        updateProfileData();
-        closePopUp(editProfilePopUp);
-        break;
-      default:
-        break;
+    evt.stopPropagation();
+    const inputList = [popUpNameInput, popUpAboutInput];
+    if (!hasInvalidInput(inputList)) {
+      showLoadingAnimationOnButton(saveButton);
+      await uploadProfileData({
+        name: popUpNameInput.value,
+        about: popUpAboutInput.value,
+      });
+      hideLoadingAnimationOnButton(saveButton);
+      closePopUp(editProfilePopUp);
     }
   });
 };
@@ -71,19 +103,8 @@ const changeImagePopUpData = function (imageURL, imageCaption) {
   showImagePopUp.querySelector(".popup__image-caption").textContent =
     imageCaption;
 };
-const setEventListenerToClosePopUpWithEscape = function () {
-  window.addEventListener("keydown", closePopUpWithEscape);
-};
-const closePopUpWithEscape = function (evt) {
-  const openedPopUp = document.querySelector(".popup_state_opened");
-  if (evt.key === "Escape" && openedPopUp) {
-    closePopUp(openedPopUp);
-    window.removeEventListener("keydown", closePopUpWithEscape);
-  }
-};
 const handleImagePopUpBlock = function () {
   const closeButton = showImagePopUp.querySelector(".popup__close-btn");
-  setEventListenerToClosePopUpWithEscape(showImagePopUp);
   showImagePopUp.addEventListener("click", (evt) => {
     switch (evt.target) {
       case showImagePopUp:
@@ -95,13 +116,12 @@ const handleImagePopUpBlock = function () {
 };
 
 const addNewPlacePopUp = document.querySelector(".popup_for-adding-place");
-
 const newPlacePopUpHandler = function () {
   const closeButton = addNewPlacePopUp.querySelector(".popup__close-btn");
   const addNewPlaceBtn = addNewPlacePopUp.querySelector(".popup__button");
   const placeName = addNewPlacePopUp.querySelector(".popup__place-name-input");
   const placeUrl = addNewPlacePopUp.querySelector(".popup__place-url-input");
-  addNewPlacePopUp.addEventListener("click", (evt) => {
+  addNewPlacePopUp.addEventListener("click", async function (evt) {
     evt.preventDefault();
     evt.stopPropagation();
     const clickedElement = evt.target;
@@ -111,17 +131,22 @@ const newPlacePopUpHandler = function () {
         closePopUp(addNewPlacePopUp);
         break;
       case addNewPlaceBtn:
-        createCard(placeName.value, placeUrl.value);
+        showLoadingAnimationOnButton(addNewPlaceBtn);
+        await createCard({ name: placeName.value, link: placeUrl.value }, true);
+        hideLoadingAnimationOnButton(addNewPlaceBtn);
         closePopUp(addNewPlacePopUp);
         break;
     }
   });
-  window.addEventListener("keydown", (evt) => {
+  window.addEventListener("keydown", async function (evt) {
     switch (evt.key) {
       case "Enter":
         const inputList = [placeName, placeUrl];
         if (!hasInvalidInput(inputList)) {
-          createCard(placeName.value, placeUrl.value);
+          await createCard(
+            { name: placeName.value, link: placeUrl.value },
+            true
+          );
           closePopUp(addNewPlacePopUp);
         }
         break;
@@ -129,13 +154,58 @@ const newPlacePopUpHandler = function () {
   });
 };
 
+const editAvatarPopUp = document.querySelector(
+  ".popup_for-updating-profile-avatar"
+);
+function handleEditAvatarPopUp() {
+  const form = editAvatarPopUp.querySelector(
+    ".popup__form-for-updating-profile-avatar"
+  );
+  const avatarUrlInput = editAvatarPopUp.querySelector(
+    ".popup__avatar-link-input"
+  );
+  const submitButton = form.querySelector(".popup__button");
+  async function handelSubmit(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    try {
+      showLoadingAnimationOnButton(submitButton);
+      await uploadNewAvatar(avatarUrlInput.value);
+      hideLoadingAnimationOnButton(submitButton);
+      await updateProfileFromServer();
+      closePopUp(editAvatarPopUp);
+    } catch (error) {
+      console.log(
+        `Не удалось обновить аватар пользователя. Ошибка: ${error.message}`
+      );
+    }
+  }
+  form.addEventListener("submit", handelSubmit);
+}
+
+const closeButtons = document.querySelectorAll(".popup__close");
+closeButtons.forEach((button) => {
+  const popup = button.closest(".popup");
+  button.addEventListener("click", () => closePopUp(popup));
+});
+function closeOpenedPopUp(event) {
+  if (event.key === "Escape") {
+    const openedPopUp = document.querySelector(".popup_state_opened");
+    openedPopUp.classList.add("popup_state_closed");
+    openedPopUp.classList.remove("popup_state_opened");
+  }
+}
+
 export {
+  handleEditAvatarPopUp,
+  editAvatarPopUp,
+  handleEditProfilePopUp,
+  handleImagePopUpBlock,
   editProfilePopUp,
   openPopUp,
-  editProfilePopUpHandler,
-  handleImagePopUpBlock,
   changeImagePopUpData,
   addNewPlacePopUp,
   showImagePopUp,
   newPlacePopUpHandler,
+  setActualProfileDataToPopup,
 };
