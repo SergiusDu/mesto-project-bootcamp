@@ -183,7 +183,7 @@ function handleEditAvatarPopUp() {
   form.addEventListener("submit", handelSubmit);
 }
 
-const closeButtons = document.querySelectorAll(".popup__close");
+const closeButtons = document.querySelectorAll(".popup__close-btn");
 closeButtons.forEach((button) => {
   const popup = button.closest(".popup");
   button.addEventListener("click", () => closePopUp(popup));
