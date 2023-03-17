@@ -5,8 +5,9 @@ import {
   editProfilePopUp,
   editAvatarPopUp,
   openPopUp,
-  setActualProfileDataToPopup,
-} from "./modal";
+  resetPopUp,
+  setNameAndAboutToEditPopUp,
+} from "./modal.js";
 const localProfileObject = {
   name: "",
   about: "",
@@ -14,6 +15,9 @@ const localProfileObject = {
   _id: "",
   cohort: "",
 };
+const profileNameElement = document.querySelector(".profile__name");
+const profileAboutElement = document.querySelector(".profile__profession");
+const profileImageElement = document.querySelector(".profile__picture");
 function getLocalProfileObject() {
   return localProfileObject;
 }
@@ -24,10 +28,6 @@ function setLocalProfileObject(name, about, avatar) {
 }
 
 function updateProfileInfoOnPage(profileObject) {
-  const profileNameElement = document.querySelector(".profile__name");
-  const profileAboutElement = document.querySelector(".profile__profession");
-  const profileImageElement = document.querySelector(".profile__picture");
-
   profileNameElement.textContent = profileObject.name;
   profileAboutElement.textContent = profileObject.about;
   profileImageElement.src = profileObject.avatar;
@@ -45,23 +45,24 @@ function handleProfileBlock() {
   const avatarButton = document.querySelector(".profile__change-avatar-button");
   const editProfileBtn = profileBlock.querySelector(".profile__edit-btn");
   const addNewPictureBtn = profileBlock.querySelector(".profile__add-btn");
-  profileBlock.addEventListener("click", async function (evt) {
-    evt.preventDefault();
+  function openEditProfilePopUp() {
+    resetPopUp(editProfilePopUp);
+    setNameAndAboutToEditPopUp(
+      profileNameElement.textContent,
+      profileAboutElement.textContent
+    );
+    openPopUp(editProfilePopUp);
+  }
+  editProfileBtn.addEventListener("click", openEditProfilePopUp);
+  addNewPictureBtn.addEventListener("click", (evt) => {
     evt.stopPropagation();
-    switch (evt.target) {
-      case editProfileBtn:
-        await setActualProfileDataToPopup();
-        openPopUp(editProfilePopUp);
-        break;
-      case addNewPictureBtn:
-        openPopUp(addNewPlacePopUp);
-        break;
-      case avatarButton:
-        openPopUp(editAvatarPopUp);
-        break;
-      default:
-        break;
-    }
+    resetPopUp(addNewPlacePopUp);
+    openPopUp(addNewPlacePopUp);
+  });
+  avatarButton.addEventListener("click", (evt) => {
+    evt.stopPropagation();
+    resetPopUp(editAvatarPopUp);
+    openPopUp(editAvatarPopUp);
   });
 }
 
@@ -71,4 +72,5 @@ export {
   getLocalProfileObject,
   setLocalProfileObject,
   localProfileObject,
+  updateProfileInfoOnPage,
 };
