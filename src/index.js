@@ -12,8 +12,9 @@ import {
   editProfilePopUp,
   handleImagePopUpBlock,
   addNewPlacePopUp,
-  newPlacePopUpHandler,
+  handleNewPlacePopUp,
   handleEditAvatarPopUp,
+  handleCloseButtons,
 } from "./components/modal.js";
 import { cardsHandler } from "./components/card.js";
 import { enableValidation } from "./components/validate.js";
@@ -21,12 +22,11 @@ import { enableValidation } from "./components/validate.js";
 async function handleIndex() {
   try {
     await updateProfileFromServer();
-    handleProfileBlock();
-    handleEditAvatarPopUp();
+    handleCloseButtons();
     handleEditProfilePopUp();
     handleProfileBlock();
-    handleImagePopUpBlock();
-    newPlacePopUpHandler();
+    handleEditAvatarPopUp();
+    handleNewPlacePopUp();
     await cardsHandler();
     enableValidation({
       formSelector: ".popup__form",
