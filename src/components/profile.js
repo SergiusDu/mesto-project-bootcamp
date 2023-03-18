@@ -34,10 +34,14 @@ function updateProfileInfoOnPage(profileObject) {
 }
 
 async function updateProfileFromServer() {
-  const profileDataFromServer = await getProfileDataFromServer();
-  Object.assign(localProfileObject, profileDataFromServer);
-  updateProfileInfoOnPage(getLocalProfileObject());
-  return profileDataFromServer;
+  try {
+    const profileDataFromServer = await getProfileDataFromServer();
+    Object.assign(localProfileObject, profileDataFromServer);
+    updateProfileInfoOnPage(getLocalProfileObject());
+    return profileDataFromServer;
+  } catch (error) {
+    console.log(`Ошибка : ${error.message}`);
+  }
 }
 
 function handleProfileBlock() {

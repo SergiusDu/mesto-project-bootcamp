@@ -22,8 +22,6 @@ const showPopUpImage = showImagePopUp.querySelector(".popup__image");
 const showPopUpImageCaption = showImagePopUp.querySelector(
   ".popup__image-caption"
 );
-const showPopUpImageCloseButton =
-  showImagePopUp.querySelector(".popup__close-btn");
 
 function resetPopUp(popUp) {
   const popupInputs = popUp.querySelectorAll(".popup__input");
@@ -45,7 +43,6 @@ function openPopUp(popUp) {
 function closePopUp(popUp) {
   popUp.classList.add("popup_state_closed");
   popUp.classList.remove("popup_state_opened");
-  resetPopUp(popUp);
   window.removeEventListener("keydown", handleEscapeKeyEvent);
 }
 async function uploadProfileData(profileObject) {
@@ -93,13 +90,13 @@ const handleEditProfilePopUp = function () {
           about: popUpAboutInput.value,
         });
         updateProfileInfoOnPage(profileDataFromServer);
+        closePopUp(editProfilePopUp);
       } catch (error) {
         console.log(
           `Не удалось обновить данные профиля. Ошибка: ${error.message}`
         );
       } finally {
         hideLoadingAnimationOnButton(saveButton);
-        closePopUp(editProfilePopUp);
       }
     }
   });
@@ -125,11 +122,11 @@ const handleNewPlacePopUp = function () {
         placeUrl.value
       );
       createCard(cardFromServer);
+      closePopUp(addNewPlacePopUp);
     } catch (error) {
       console.log(`Ошибка создания карточки. ${error.message}`);
     } finally {
       hideLoadingAnimationOnButton(addNewPlaceBtn);
-      closePopUp(addNewPlacePopUp);
     }
   });
 };
@@ -152,21 +149,26 @@ function handleEditAvatarPopUp() {
       showLoadingAnimationOnButton(submitButton);
       const profileFromServer = await uploadNewAvatar(avatarUrlInput.value);
       updateProfileInfoOnPage(profileFromServer);
+      closePopUp(editAvatarPopUp);
     } catch (error) {
       console.log(
         `Не удалось обновить аватар пользователя. Ошибка: ${error.message}`
       );
     } finally {
       hideLoadingAnimationOnButton(submitButton);
-      closePopUp(editAvatarPopUp);
     }
   }
   editAvatarPopUpForm.addEventListener("submit", handelSubmit);
 }
-function handleCloseButtons() {
+function handleCloseButtonsAndPopUpOverlay() {
   const closeButtons = document.querySelectorAll(".popup__close-btn");
   closeButtons.forEach((button) => {
     const popup = button.closest(".popup");
+    popup.addEventListener("click", (evt) => {
+      if (event.target.classList.contains("popup")) {
+        closePopUp(popup);
+      }
+    });
     button.addEventListener("click", () => closePopUp(popup));
   });
 }
@@ -190,5 +192,5 @@ export {
   handleNewPlacePopUp,
   setNameAndAboutToEditPopUp,
   resetPopUp,
-  handleCloseButtons,
+  handleCloseButtonsAndPopUpOverlay,
 };

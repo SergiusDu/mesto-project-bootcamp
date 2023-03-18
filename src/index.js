@@ -1,6 +1,9 @@
 "use strict";
 import "./pages/index.css";
-import { getProfileDataFromServer } from "./components/api.js";
+import {
+  getCardsFromServer,
+  getProfileDataFromServer,
+} from "./components/api.js";
 import {
   updateProfileFromServer,
   handleProfileBlock,
@@ -14,20 +17,25 @@ import {
   addNewPlacePopUp,
   handleNewPlacePopUp,
   handleEditAvatarPopUp,
-  handleCloseButtons,
+  handleCloseButtonsAndPopUpOverlay,
 } from "./components/modal.js";
-import { cardsHandler } from "./components/card.js";
+import { cardsHandler, createCardsFromList } from "./components/card.js";
 import { enableValidation } from "./components/validate.js";
 
 async function handleIndex() {
   try {
-    await updateProfileFromServer();
-    handleCloseButtons();
+    try {
+      await updateProfileFromServer();
+    } catch (error) {
+      console.log(
+        `Не удалось обновить профиль пользователя. Ошибка: ${error.message}`
+      );
+    }
+    handleCloseButtonsAndPopUpOverlay();
     handleEditProfilePopUp();
     handleProfileBlock();
     handleEditAvatarPopUp();
     handleNewPlacePopUp();
-    await cardsHandler();
     enableValidation({
       formSelector: ".popup__form",
       inputSelector: ".popup__input",
@@ -36,6 +44,7 @@ async function handleIndex() {
       inputErrorClass: "popup__input_type_error",
       errorClass: "popup__error_visible",
     });
+    createCardsFromList(await getCardsFromServer());
   } catch (error) {
     console.log(`Ошибка на странице: ${error.message}`);
   }
