@@ -20,7 +20,6 @@ const cardObjectExpectedKeys = [
   "owner",
   "createdAt",
 ];
-
 function getCard(cardObject) {
   checkServerResponseKeys(cardObject, cardObjectExpectedKeys);
   async function handleLikeButton(cardObject, likeButton, likesCountElement) {
@@ -71,7 +70,11 @@ function getCard(cardObject) {
   imageElement.addEventListener("click", openImagePopUp);
   nameElement.textContent = cardObject.name;
   likeButton.addEventListener("click", async (event) => {
-    await handleLikeButton(cardObject, likeButton, likesCountElement);
+    try {
+      await handleLikeButton(cardObject, likeButton, likesCountElement);
+    } catch (error) {
+      console.log(`Ошибка: ${error.message}`);
+    }
   });
   if (cardObject.owner._id !== getLocalProfileObject()._id) {
     deleteCardButton.remove();
@@ -97,15 +100,4 @@ function createCardsFromList(listWithCards) {
   });
 }
 
-async function cardsHandler() {
-  await Promise.all([getCardsFromServer(), updateProfileFromServer])
-    .then(([cardsArrayFromServer, userDataFromServer]) => {
-      createCardsFromList(cardsArrayFromServer);
-    })
-    .catch((error) => {
-      throw new Error(
-        `Не удалось загрузить карточки с сервера. Ошибка: ${error.message}`
-      );
-    });
-}
-export { createCard, createCardsFromList, cardsHandler };
+export { createCard, createCardsFromList };
