@@ -1,2 +1,639 @@
-/*! For license information please see main.js.LICENSE.txt */
-(()=>{"use strict";function t(e){return t="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},t(e)}function e(){e=function(){return r};var r={},n=Object.prototype,o=n.hasOwnProperty,i=Object.defineProperty||function(t,e,r){t[e]=r.value},a="function"==typeof Symbol?Symbol:{},c=a.iterator||"@@iterator",u=a.asyncIterator||"@@asyncIterator",s=a.toStringTag||"@@toStringTag";function l(t,e,r){return Object.defineProperty(t,e,{value:r,enumerable:!0,configurable:!0,writable:!0}),t[e]}try{l({},"")}catch(t){l=function(t,e,r){return t[e]=r}}function f(t,e,r,n){var o=e&&e.prototype instanceof v?e:v,a=Object.create(o.prototype),c=new O(n||[]);return i(a,"_invoke",{value:L(t,r,c)}),a}function p(t,e,r){try{return{type:"normal",arg:t.call(e,r)}}catch(t){return{type:"throw",arg:t}}}r.wrap=f;var h={};function v(){}function d(){}function y(){}var m={};l(m,c,(function(){return this}));var g=Object.getPrototypeOf,w=g&&g(g(j([])));w&&w!==n&&o.call(w,c)&&(m=w);var b=y.prototype=v.prototype=Object.create(m);function x(t){["next","throw","return"].forEach((function(e){l(t,e,(function(t){return this._invoke(e,t)}))}))}function _(e,r){function n(i,a,c,u){var s=p(e[i],e,a);if("throw"!==s.type){var l=s.arg,f=l.value;return f&&"object"==t(f)&&o.call(f,"__await")?r.resolve(f.__await).then((function(t){n("next",t,c,u)}),(function(t){n("throw",t,c,u)})):r.resolve(f).then((function(t){l.value=t,c(l)}),(function(t){return n("throw",t,c,u)}))}u(s.arg)}var a;i(this,"_invoke",{value:function(t,e){function o(){return new r((function(r,o){n(t,e,r,o)}))}return a=a?a.then(o,o):o()}})}function L(t,e,r){var n="suspendedStart";return function(o,i){if("executing"===n)throw new Error("Generator is already running");if("completed"===n){if("throw"===o)throw i;return{value:void 0,done:!0}}for(r.method=o,r.arg=i;;){var a=r.delegate;if(a){var c=E(a,r);if(c){if(c===h)continue;return c}}if("next"===r.method)r.sent=r._sent=r.arg;else if("throw"===r.method){if("suspendedStart"===n)throw n="completed",r.arg;r.dispatchException(r.arg)}else"return"===r.method&&r.abrupt("return",r.arg);n="executing";var u=p(t,e,r);if("normal"===u.type){if(n=r.done?"completed":"suspendedYield",u.arg===h)continue;return{value:u.arg,done:r.done}}"throw"===u.type&&(n="completed",r.method="throw",r.arg=u.arg)}}}function E(t,e){var r=e.method,n=t.iterator[r];if(void 0===n)return e.delegate=null,"throw"===r&&t.iterator.return&&(e.method="return",e.arg=void 0,E(t,e),"throw"===e.method)||"return"!==r&&(e.method="throw",e.arg=new TypeError("The iterator does not provide a '"+r+"' method")),h;var o=p(n,t.iterator,e.arg);if("throw"===o.type)return e.method="throw",e.arg=o.arg,e.delegate=null,h;var i=o.arg;return i?i.done?(e[t.resultName]=i.value,e.next=t.nextLoc,"return"!==e.method&&(e.method="next",e.arg=void 0),e.delegate=null,h):i:(e.method="throw",e.arg=new TypeError("iterator result is not an object"),e.delegate=null,h)}function k(t){var e={tryLoc:t[0]};1 in t&&(e.catchLoc=t[1]),2 in t&&(e.finallyLoc=t[2],e.afterLoc=t[3]),this.tryEntries.push(e)}function S(t){var e=t.completion||{};e.type="normal",delete e.arg,t.completion=e}function O(t){this.tryEntries=[{tryLoc:"root"}],t.forEach(k,this),this.reset(!0)}function j(t){if(t){var e=t[c];if(e)return e.call(t);if("function"==typeof t.next)return t;if(!isNaN(t.length)){var r=-1,n=function e(){for(;++r<t.length;)if(o.call(t,r))return e.value=t[r],e.done=!1,e;return e.value=void 0,e.done=!0,e};return n.next=n}}return{next:P}}function P(){return{value:void 0,done:!0}}return d.prototype=y,i(b,"constructor",{value:y,configurable:!0}),i(y,"constructor",{value:d,configurable:!0}),d.displayName=l(y,s,"GeneratorFunction"),r.isGeneratorFunction=function(t){var e="function"==typeof t&&t.constructor;return!!e&&(e===d||"GeneratorFunction"===(e.displayName||e.name))},r.mark=function(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,y):(t.__proto__=y,l(t,s,"GeneratorFunction")),t.prototype=Object.create(b),t},r.awrap=function(t){return{__await:t}},x(_.prototype),l(_.prototype,u,(function(){return this})),r.AsyncIterator=_,r.async=function(t,e,n,o,i){void 0===i&&(i=Promise);var a=new _(f(t,e,n,o),i);return r.isGeneratorFunction(e)?a:a.next().then((function(t){return t.done?t.value:a.next()}))},x(b),l(b,s,"Generator"),l(b,c,(function(){return this})),l(b,"toString",(function(){return"[object Generator]"})),r.keys=function(t){var e=Object(t),r=[];for(var n in e)r.push(n);return r.reverse(),function t(){for(;r.length;){var n=r.pop();if(n in e)return t.value=n,t.done=!1,t}return t.done=!0,t}},r.values=j,O.prototype={constructor:O,reset:function(t){if(this.prev=0,this.next=0,this.sent=this._sent=void 0,this.done=!1,this.delegate=null,this.method="next",this.arg=void 0,this.tryEntries.forEach(S),!t)for(var e in this)"t"===e.charAt(0)&&o.call(this,e)&&!isNaN(+e.slice(1))&&(this[e]=void 0)},stop:function(){this.done=!0;var t=this.tryEntries[0].completion;if("throw"===t.type)throw t.arg;return this.rval},dispatchException:function(t){if(this.done)throw t;var e=this;function r(r,n){return a.type="throw",a.arg=t,e.next=r,n&&(e.method="next",e.arg=void 0),!!n}for(var n=this.tryEntries.length-1;n>=0;--n){var i=this.tryEntries[n],a=i.completion;if("root"===i.tryLoc)return r("end");if(i.tryLoc<=this.prev){var c=o.call(i,"catchLoc"),u=o.call(i,"finallyLoc");if(c&&u){if(this.prev<i.catchLoc)return r(i.catchLoc,!0);if(this.prev<i.finallyLoc)return r(i.finallyLoc)}else if(c){if(this.prev<i.catchLoc)return r(i.catchLoc,!0)}else{if(!u)throw new Error("try statement without catch or finally");if(this.prev<i.finallyLoc)return r(i.finallyLoc)}}}},abrupt:function(t,e){for(var r=this.tryEntries.length-1;r>=0;--r){var n=this.tryEntries[r];if(n.tryLoc<=this.prev&&o.call(n,"finallyLoc")&&this.prev<n.finallyLoc){var i=n;break}}i&&("break"===t||"continue"===t)&&i.tryLoc<=e&&e<=i.finallyLoc&&(i=null);var a=i?i.completion:{};return a.type=t,a.arg=e,i?(this.method="next",this.next=i.finallyLoc,h):this.complete(a)},complete:function(t,e){if("throw"===t.type)throw t.arg;return"break"===t.type||"continue"===t.type?this.next=t.arg:"return"===t.type?(this.rval=this.arg=t.arg,this.method="return",this.next="end"):"normal"===t.type&&e&&(this.next=e),h},finish:function(t){for(var e=this.tryEntries.length-1;e>=0;--e){var r=this.tryEntries[e];if(r.finallyLoc===t)return this.complete(r.completion,r.afterLoc),S(r),h}},catch:function(t){for(var e=this.tryEntries.length-1;e>=0;--e){var r=this.tryEntries[e];if(r.tryLoc===t){var n=r.completion;if("throw"===n.type){var o=n.arg;S(r)}return o}}throw new Error("illegal catch attempt")},delegateYield:function(t,e,r){return this.delegate={iterator:j(t),resultName:e,nextLoc:r},"next"===this.method&&(this.arg=void 0),h}},r}function r(t,e,r,n,o,i,a){try{var c=t[i](a),u=c.value}catch(t){return void r(t)}c.done?e(u):Promise.resolve(u).then(n,o)}function n(t){return function(){var e=this,n=arguments;return new Promise((function(o,i){var a=t.apply(e,n);function c(t){r(a,o,i,c,u,"next",t)}function u(t){r(a,o,i,c,u,"throw",t)}c(void 0)}))}}var o=document.querySelector(".gallery__cards"),i=document.querySelector(".card__template").content,a=["likes","_id","name","link","owner","createdAt"];function c(t){var r=function(t){function r(t,e,r){return o.apply(this,arguments)}function o(){return o=n(e().mark((function t(r,n,o){var i,a,c;return e().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(t.prev=0,i=r._id,!n.classList.contains("card__like-btn_checked")){t.next=11;break}return t.next=6,vt(i);case 6:a=t.sent,o.textContent=a.likes.length,n.classList.remove("card__like-btn_checked"),t.next=16;break;case 11:return t.next=13,pt(i);case 13:c=t.sent,o.textContent=c.likes.length,n.classList.add("card__like-btn_checked");case 16:t.next=21;break;case 18:t.prev=18,t.t0=t.catch(0),console.log("Не удалось поставить или убрать лайк у карточки. Ошибка: ".concat(t.t0.message));case 21:case"end":return t.stop()}}),t,null,[[0,18]])}))),o.apply(this,arguments)}!function(t,e){if(!e.every((function(e){return t.hasOwnProperty(e)})))throw new ReferenceError("Объект ".concat(t," не содержит одного или более свойств из списка ").concat(e))}(t,a);var c=i.cloneNode(!0),u=c.querySelector(".card__image"),s=c.querySelector(".card__title"),l=c.querySelector(".card__delete-btn"),f=c.querySelector(".card__like-btn"),p=c.querySelector(".card__likes-count"),h=function(t){var e=J()._id;return t.likes.some((function(t){return t._id===e}))}(t);h&&f.classList.add("card__like-btn_checked"),p.textContent=t.likes.length;var v=t.link,d=t.name;return u.src=v,u.alt=d,u.addEventListener("click",(function(){N(v,d),b(y)})),s.textContent=t.name,f.addEventListener("click",function(){var o=n(e().mark((function n(o){return e().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.prev=0,e.next=3,r(t,f,p);case 3:e.next=8;break;case 5:e.prev=5,e.t0=e.catch(0),console.log("Ошибка: ".concat(e.t0.message));case 8:case"end":return e.stop()}}),n,null,[[0,5]])})));return function(t){return o.apply(this,arguments)}}()),t.owner._id!==J()._id?l.remove():l.addEventListener("click",function(){var r=n(e().mark((function r(n){return e().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.prev=0,e.next=3,lt(t._id);case 3:l.closest(".card").remove(),e.next=9;break;case 6:e.prev=6,e.t0=e.catch(0),console.log("Не удалось удалить карточку с сервера. ".concat(e.t0.message));case 9:case"end":return e.stop()}}),r,null,[[0,6]])})));return function(t){return r.apply(this,arguments)}}()),c}(t);o.prepend(r)}function u(t){t.forEach((function(t){c(t)}))}var s=function(t){return t.some((function(t){return!t.validity.valid}))},l=function(t,e,r){s(t)?(e.classList.add(r),e.disabled=!0):(e.classList.remove(r),e.disabled=!1)},f=function(t){document.querySelectorAll(t.formSelector).forEach((function(e){!function(t,e,r,n,o,i){var a=Array.from(t.querySelectorAll(e)),c=t.querySelector(r);l(a,c,n),a.forEach((function(e){e.addEventListener("input",(function(r){!function(t,e,r,n){e.validity.valid?function(t,e,r,n){var o=t.querySelector(".".concat(e.id,"-error"));o.classList.remove(n),e.classList.remove(r),o.textContent=""}(t,e,r,r):function(t,e,r,n,o){var i=t.querySelector(".".concat(e.id,"-error"));i.textContent=r,i.classList.add(o),e.classList.add(n)}(t,e,e.validationMessage,r,n)}(t,e,o,i),l(a,c,n)}))}))}(e,t.inputSelector,t.submitButtonSelector,t.inactiveButtonClass,t.inputErrorClass,t.errorClass)}))};function p(t){return p="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},p(t)}function h(){h=function(){return t};var t={},e=Object.prototype,r=e.hasOwnProperty,n=Object.defineProperty||function(t,e,r){t[e]=r.value},o="function"==typeof Symbol?Symbol:{},i=o.iterator||"@@iterator",a=o.asyncIterator||"@@asyncIterator",c=o.toStringTag||"@@toStringTag";function u(t,e,r){return Object.defineProperty(t,e,{value:r,enumerable:!0,configurable:!0,writable:!0}),t[e]}try{u({},"")}catch(t){u=function(t,e,r){return t[e]=r}}function s(t,e,r,o){var i=e&&e.prototype instanceof v?e:v,a=Object.create(i.prototype),c=new O(o||[]);return n(a,"_invoke",{value:L(t,r,c)}),a}function l(t,e,r){try{return{type:"normal",arg:t.call(e,r)}}catch(t){return{type:"throw",arg:t}}}t.wrap=s;var f={};function v(){}function d(){}function y(){}var m={};u(m,i,(function(){return this}));var g=Object.getPrototypeOf,w=g&&g(g(j([])));w&&w!==e&&r.call(w,i)&&(m=w);var b=y.prototype=v.prototype=Object.create(m);function x(t){["next","throw","return"].forEach((function(e){u(t,e,(function(t){return this._invoke(e,t)}))}))}function _(t,e){function o(n,i,a,c){var u=l(t[n],t,i);if("throw"!==u.type){var s=u.arg,f=s.value;return f&&"object"==p(f)&&r.call(f,"__await")?e.resolve(f.__await).then((function(t){o("next",t,a,c)}),(function(t){o("throw",t,a,c)})):e.resolve(f).then((function(t){s.value=t,a(s)}),(function(t){return o("throw",t,a,c)}))}c(u.arg)}var i;n(this,"_invoke",{value:function(t,r){function n(){return new e((function(e,n){o(t,r,e,n)}))}return i=i?i.then(n,n):n()}})}function L(t,e,r){var n="suspendedStart";return function(o,i){if("executing"===n)throw new Error("Generator is already running");if("completed"===n){if("throw"===o)throw i;return{value:void 0,done:!0}}for(r.method=o,r.arg=i;;){var a=r.delegate;if(a){var c=E(a,r);if(c){if(c===f)continue;return c}}if("next"===r.method)r.sent=r._sent=r.arg;else if("throw"===r.method){if("suspendedStart"===n)throw n="completed",r.arg;r.dispatchException(r.arg)}else"return"===r.method&&r.abrupt("return",r.arg);n="executing";var u=l(t,e,r);if("normal"===u.type){if(n=r.done?"completed":"suspendedYield",u.arg===f)continue;return{value:u.arg,done:r.done}}"throw"===u.type&&(n="completed",r.method="throw",r.arg=u.arg)}}}function E(t,e){var r=e.method,n=t.iterator[r];if(void 0===n)return e.delegate=null,"throw"===r&&t.iterator.return&&(e.method="return",e.arg=void 0,E(t,e),"throw"===e.method)||"return"!==r&&(e.method="throw",e.arg=new TypeError("The iterator does not provide a '"+r+"' method")),f;var o=l(n,t.iterator,e.arg);if("throw"===o.type)return e.method="throw",e.arg=o.arg,e.delegate=null,f;var i=o.arg;return i?i.done?(e[t.resultName]=i.value,e.next=t.nextLoc,"return"!==e.method&&(e.method="next",e.arg=void 0),e.delegate=null,f):i:(e.method="throw",e.arg=new TypeError("iterator result is not an object"),e.delegate=null,f)}function k(t){var e={tryLoc:t[0]};1 in t&&(e.catchLoc=t[1]),2 in t&&(e.finallyLoc=t[2],e.afterLoc=t[3]),this.tryEntries.push(e)}function S(t){var e=t.completion||{};e.type="normal",delete e.arg,t.completion=e}function O(t){this.tryEntries=[{tryLoc:"root"}],t.forEach(k,this),this.reset(!0)}function j(t){if(t){var e=t[i];if(e)return e.call(t);if("function"==typeof t.next)return t;if(!isNaN(t.length)){var n=-1,o=function e(){for(;++n<t.length;)if(r.call(t,n))return e.value=t[n],e.done=!1,e;return e.value=void 0,e.done=!0,e};return o.next=o}}return{next:P}}function P(){return{value:void 0,done:!0}}return d.prototype=y,n(b,"constructor",{value:y,configurable:!0}),n(y,"constructor",{value:d,configurable:!0}),d.displayName=u(y,c,"GeneratorFunction"),t.isGeneratorFunction=function(t){var e="function"==typeof t&&t.constructor;return!!e&&(e===d||"GeneratorFunction"===(e.displayName||e.name))},t.mark=function(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,y):(t.__proto__=y,u(t,c,"GeneratorFunction")),t.prototype=Object.create(b),t},t.awrap=function(t){return{__await:t}},x(_.prototype),u(_.prototype,a,(function(){return this})),t.AsyncIterator=_,t.async=function(e,r,n,o,i){void 0===i&&(i=Promise);var a=new _(s(e,r,n,o),i);return t.isGeneratorFunction(r)?a:a.next().then((function(t){return t.done?t.value:a.next()}))},x(b),u(b,c,"Generator"),u(b,i,(function(){return this})),u(b,"toString",(function(){return"[object Generator]"})),t.keys=function(t){var e=Object(t),r=[];for(var n in e)r.push(n);return r.reverse(),function t(){for(;r.length;){var n=r.pop();if(n in e)return t.value=n,t.done=!1,t}return t.done=!0,t}},t.values=j,O.prototype={constructor:O,reset:function(t){if(this.prev=0,this.next=0,this.sent=this._sent=void 0,this.done=!1,this.delegate=null,this.method="next",this.arg=void 0,this.tryEntries.forEach(S),!t)for(var e in this)"t"===e.charAt(0)&&r.call(this,e)&&!isNaN(+e.slice(1))&&(this[e]=void 0)},stop:function(){this.done=!0;var t=this.tryEntries[0].completion;if("throw"===t.type)throw t.arg;return this.rval},dispatchException:function(t){if(this.done)throw t;var e=this;function n(r,n){return a.type="throw",a.arg=t,e.next=r,n&&(e.method="next",e.arg=void 0),!!n}for(var o=this.tryEntries.length-1;o>=0;--o){var i=this.tryEntries[o],a=i.completion;if("root"===i.tryLoc)return n("end");if(i.tryLoc<=this.prev){var c=r.call(i,"catchLoc"),u=r.call(i,"finallyLoc");if(c&&u){if(this.prev<i.catchLoc)return n(i.catchLoc,!0);if(this.prev<i.finallyLoc)return n(i.finallyLoc)}else if(c){if(this.prev<i.catchLoc)return n(i.catchLoc,!0)}else{if(!u)throw new Error("try statement without catch or finally");if(this.prev<i.finallyLoc)return n(i.finallyLoc)}}}},abrupt:function(t,e){for(var n=this.tryEntries.length-1;n>=0;--n){var o=this.tryEntries[n];if(o.tryLoc<=this.prev&&r.call(o,"finallyLoc")&&this.prev<o.finallyLoc){var i=o;break}}i&&("break"===t||"continue"===t)&&i.tryLoc<=e&&e<=i.finallyLoc&&(i=null);var a=i?i.completion:{};return a.type=t,a.arg=e,i?(this.method="next",this.next=i.finallyLoc,f):this.complete(a)},complete:function(t,e){if("throw"===t.type)throw t.arg;return"break"===t.type||"continue"===t.type?this.next=t.arg:"return"===t.type?(this.rval=this.arg=t.arg,this.method="return",this.next="end"):"normal"===t.type&&e&&(this.next=e),f},finish:function(t){for(var e=this.tryEntries.length-1;e>=0;--e){var r=this.tryEntries[e];if(r.finallyLoc===t)return this.complete(r.completion,r.afterLoc),S(r),f}},catch:function(t){for(var e=this.tryEntries.length-1;e>=0;--e){var r=this.tryEntries[e];if(r.tryLoc===t){var n=r.completion;if("throw"===n.type){var o=n.arg;S(r)}return o}}throw new Error("illegal catch attempt")},delegateYield:function(t,e,r){return this.delegate={iterator:j(t),resultName:e,nextLoc:r},"next"===this.method&&(this.arg=void 0),f}},t}function v(t,e,r,n,o,i,a){try{var c=t[i](a),u=c.value}catch(t){return void r(t)}c.done?e(u):Promise.resolve(u).then(n,o)}function d(t){return function(){var e=this,r=arguments;return new Promise((function(n,o){var i=t.apply(e,r);function a(t){v(i,n,o,a,c,"next",t)}function c(t){v(i,n,o,a,c,"throw",t)}a(void 0)}))}}var y=document.querySelector(".popup_for-image"),m=y.querySelector(".popup__image"),g=y.querySelector(".popup__image-caption");function w(t){t.querySelectorAll(".popup__input").forEach((function(t){t.value="",t.classList.remove("popup__input_type_error")})),t.querySelectorAll(".popup__error").forEach((function(t){t.classList.remove(".popup__error_visible"),t.textContent=""}))}function b(t){t.classList.remove("popup_state_closed"),t.classList.add("popup_state_opened"),window.addEventListener("keydown",C)}function x(t){t.classList.add("popup_state_closed"),t.classList.remove("popup_state_opened"),window.removeEventListener("keydown",C)}function _(t){return L.apply(this,arguments)}function L(){return(L=d(h().mark((function t(e){return h().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return t.prev=0,t.next=3,rt(e.name,e.about);case 3:return t.abrupt("return",t.sent);case 6:t.prev=6,t.t0=t.catch(0),console.log("Ошибка обновления информации профиля. Ошибка: ".concat(t.t0.message));case 9:case"end":return t.stop()}}),t,null,[[0,6]])})))).apply(this,arguments)}function E(t){t.classList.add("popup__button_loading")}function k(t){t.classList.remove("popup__button_loading")}var S=document.querySelector(".popup_for-editing-profile"),O=S.querySelector(".popup__name-input"),j=S.querySelector(".popup__profession-input"),P=function(){S.querySelector(".popup__close-btn");var t=S.querySelector(".popup__button");S.querySelector(".popup__form").addEventListener("submit",function(){var e=d(h().mark((function e(r){return h().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(r.preventDefault(),r.stopPropagation(),s([O,j])){e.next=19;break}return E(t),e.prev=5,e.next=8,_({name:O.value,about:j.value});case 8:z(e.sent),x(S),e.next=16;break;case 13:e.prev=13,e.t0=e.catch(5),console.log("Не удалось обновить данные профиля. Ошибка: ".concat(e.t0.message));case 16:return e.prev=16,k(t),e.finish(16);case 19:case"end":return e.stop()}}),e,null,[[5,13,16,19]])})));return function(t){return e.apply(this,arguments)}}())},N=function(t,e){m.src=t,m.alt=e,g.textContent=e},T=document.querySelector(".popup_for-adding-place"),q=function(){var t=T.querySelector(".popup__button"),e=T.querySelector(".popup__place-name-input"),r=T.querySelector(".popup__place-url-input");T.querySelector(".popup__form").addEventListener("submit",function(){var n=d(h().mark((function n(o){return h().wrap((function(n){for(;;)switch(n.prev=n.next){case 0:return o.preventDefault(),E(t),n.prev=2,n.next=5,ut(e.value,r.value);case 5:c(n.sent),x(T),n.next=13;break;case 10:n.prev=10,n.t0=n.catch(2),console.log("Ошибка создания карточки. ".concat(n.t0.message));case 13:return n.prev=13,k(t),n.finish(13);case 16:case"end":return n.stop()}}),n,null,[[2,10,13,16]])})));return function(t){return n.apply(this,arguments)}}())},G=document.querySelector(".popup_for-updating-profile-avatar");function F(){var t=G.querySelector(".popup__form-for-updating-profile-avatar"),e=G.querySelector(".popup__avatar-link-input"),r=t.querySelector(".popup__button");function n(){return(n=d(h().mark((function t(n){return h().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return n.preventDefault(),n.stopPropagation(),t.prev=2,E(r),t.next=6,ot(e.value);case 6:z(t.sent),x(G),t.next=14;break;case 11:t.prev=11,t.t0=t.catch(2),console.log("Не удалось обновить аватар пользователя. Ошибка: ".concat(t.t0.message));case 14:return t.prev=14,k(r),t.finish(14);case 17:case"end":return t.stop()}}),t,null,[[2,11,14,17]])})))).apply(this,arguments)}t.addEventListener("submit",(function(t){return n.apply(this,arguments)}))}function C(t){"Escape"===t.key&&x(document.querySelector(".popup_state_opened"))}function A(t){return A="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},A(t)}function I(){I=function(){return t};var t={},e=Object.prototype,r=e.hasOwnProperty,n=Object.defineProperty||function(t,e,r){t[e]=r.value},o="function"==typeof Symbol?Symbol:{},i=o.iterator||"@@iterator",a=o.asyncIterator||"@@asyncIterator",c=o.toStringTag||"@@toStringTag";function u(t,e,r){return Object.defineProperty(t,e,{value:r,enumerable:!0,configurable:!0,writable:!0}),t[e]}try{u({},"")}catch(t){u=function(t,e,r){return t[e]=r}}function s(t,e,r,o){var i=e&&e.prototype instanceof p?e:p,a=Object.create(i.prototype),c=new k(o||[]);return n(a,"_invoke",{value:x(t,r,c)}),a}function l(t,e,r){try{return{type:"normal",arg:t.call(e,r)}}catch(t){return{type:"throw",arg:t}}}t.wrap=s;var f={};function p(){}function h(){}function v(){}var d={};u(d,i,(function(){return this}));var y=Object.getPrototypeOf,m=y&&y(y(S([])));m&&m!==e&&r.call(m,i)&&(d=m);var g=v.prototype=p.prototype=Object.create(d);function w(t){["next","throw","return"].forEach((function(e){u(t,e,(function(t){return this._invoke(e,t)}))}))}function b(t,e){function o(n,i,a,c){var u=l(t[n],t,i);if("throw"!==u.type){var s=u.arg,f=s.value;return f&&"object"==A(f)&&r.call(f,"__await")?e.resolve(f.__await).then((function(t){o("next",t,a,c)}),(function(t){o("throw",t,a,c)})):e.resolve(f).then((function(t){s.value=t,a(s)}),(function(t){return o("throw",t,a,c)}))}c(u.arg)}var i;n(this,"_invoke",{value:function(t,r){function n(){return new e((function(e,n){o(t,r,e,n)}))}return i=i?i.then(n,n):n()}})}function x(t,e,r){var n="suspendedStart";return function(o,i){if("executing"===n)throw new Error("Generator is already running");if("completed"===n){if("throw"===o)throw i;return{value:void 0,done:!0}}for(r.method=o,r.arg=i;;){var a=r.delegate;if(a){var c=_(a,r);if(c){if(c===f)continue;return c}}if("next"===r.method)r.sent=r._sent=r.arg;else if("throw"===r.method){if("suspendedStart"===n)throw n="completed",r.arg;r.dispatchException(r.arg)}else"return"===r.method&&r.abrupt("return",r.arg);n="executing";var u=l(t,e,r);if("normal"===u.type){if(n=r.done?"completed":"suspendedYield",u.arg===f)continue;return{value:u.arg,done:r.done}}"throw"===u.type&&(n="completed",r.method="throw",r.arg=u.arg)}}}function _(t,e){var r=e.method,n=t.iterator[r];if(void 0===n)return e.delegate=null,"throw"===r&&t.iterator.return&&(e.method="return",e.arg=void 0,_(t,e),"throw"===e.method)||"return"!==r&&(e.method="throw",e.arg=new TypeError("The iterator does not provide a '"+r+"' method")),f;var o=l(n,t.iterator,e.arg);if("throw"===o.type)return e.method="throw",e.arg=o.arg,e.delegate=null,f;var i=o.arg;return i?i.done?(e[t.resultName]=i.value,e.next=t.nextLoc,"return"!==e.method&&(e.method="next",e.arg=void 0),e.delegate=null,f):i:(e.method="throw",e.arg=new TypeError("iterator result is not an object"),e.delegate=null,f)}function L(t){var e={tryLoc:t[0]};1 in t&&(e.catchLoc=t[1]),2 in t&&(e.finallyLoc=t[2],e.afterLoc=t[3]),this.tryEntries.push(e)}function E(t){var e=t.completion||{};e.type="normal",delete e.arg,t.completion=e}function k(t){this.tryEntries=[{tryLoc:"root"}],t.forEach(L,this),this.reset(!0)}function S(t){if(t){var e=t[i];if(e)return e.call(t);if("function"==typeof t.next)return t;if(!isNaN(t.length)){var n=-1,o=function e(){for(;++n<t.length;)if(r.call(t,n))return e.value=t[n],e.done=!1,e;return e.value=void 0,e.done=!0,e};return o.next=o}}return{next:O}}function O(){return{value:void 0,done:!0}}return h.prototype=v,n(g,"constructor",{value:v,configurable:!0}),n(v,"constructor",{value:h,configurable:!0}),h.displayName=u(v,c,"GeneratorFunction"),t.isGeneratorFunction=function(t){var e="function"==typeof t&&t.constructor;return!!e&&(e===h||"GeneratorFunction"===(e.displayName||e.name))},t.mark=function(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,v):(t.__proto__=v,u(t,c,"GeneratorFunction")),t.prototype=Object.create(g),t},t.awrap=function(t){return{__await:t}},w(b.prototype),u(b.prototype,a,(function(){return this})),t.AsyncIterator=b,t.async=function(e,r,n,o,i){void 0===i&&(i=Promise);var a=new b(s(e,r,n,o),i);return t.isGeneratorFunction(r)?a:a.next().then((function(t){return t.done?t.value:a.next()}))},w(g),u(g,c,"Generator"),u(g,i,(function(){return this})),u(g,"toString",(function(){return"[object Generator]"})),t.keys=function(t){var e=Object(t),r=[];for(var n in e)r.push(n);return r.reverse(),function t(){for(;r.length;){var n=r.pop();if(n in e)return t.value=n,t.done=!1,t}return t.done=!0,t}},t.values=S,k.prototype={constructor:k,reset:function(t){if(this.prev=0,this.next=0,this.sent=this._sent=void 0,this.done=!1,this.delegate=null,this.method="next",this.arg=void 0,this.tryEntries.forEach(E),!t)for(var e in this)"t"===e.charAt(0)&&r.call(this,e)&&!isNaN(+e.slice(1))&&(this[e]=void 0)},stop:function(){this.done=!0;var t=this.tryEntries[0].completion;if("throw"===t.type)throw t.arg;return this.rval},dispatchException:function(t){if(this.done)throw t;var e=this;function n(r,n){return a.type="throw",a.arg=t,e.next=r,n&&(e.method="next",e.arg=void 0),!!n}for(var o=this.tryEntries.length-1;o>=0;--o){var i=this.tryEntries[o],a=i.completion;if("root"===i.tryLoc)return n("end");if(i.tryLoc<=this.prev){var c=r.call(i,"catchLoc"),u=r.call(i,"finallyLoc");if(c&&u){if(this.prev<i.catchLoc)return n(i.catchLoc,!0);if(this.prev<i.finallyLoc)return n(i.finallyLoc)}else if(c){if(this.prev<i.catchLoc)return n(i.catchLoc,!0)}else{if(!u)throw new Error("try statement without catch or finally");if(this.prev<i.finallyLoc)return n(i.finallyLoc)}}}},abrupt:function(t,e){for(var n=this.tryEntries.length-1;n>=0;--n){var o=this.tryEntries[n];if(o.tryLoc<=this.prev&&r.call(o,"finallyLoc")&&this.prev<o.finallyLoc){var i=o;break}}i&&("break"===t||"continue"===t)&&i.tryLoc<=e&&e<=i.finallyLoc&&(i=null);var a=i?i.completion:{};return a.type=t,a.arg=e,i?(this.method="next",this.next=i.finallyLoc,f):this.complete(a)},complete:function(t,e){if("throw"===t.type)throw t.arg;return"break"===t.type||"continue"===t.type?this.next=t.arg:"return"===t.type?(this.rval=this.arg=t.arg,this.method="return",this.next="end"):"normal"===t.type&&e&&(this.next=e),f},finish:function(t){for(var e=this.tryEntries.length-1;e>=0;--e){var r=this.tryEntries[e];if(r.finallyLoc===t)return this.complete(r.completion,r.afterLoc),E(r),f}},catch:function(t){for(var e=this.tryEntries.length-1;e>=0;--e){var r=this.tryEntries[e];if(r.tryLoc===t){var n=r.completion;if("throw"===n.type){var o=n.arg;E(r)}return o}}throw new Error("illegal catch attempt")},delegateYield:function(t,e,r){return this.delegate={iterator:S(t),resultName:e,nextLoc:r},"next"===this.method&&(this.arg=void 0),f}},t}function U(t,e,r,n,o,i,a){try{var c=t[i](a),u=c.value}catch(t){return void r(t)}c.done?e(u):Promise.resolve(u).then(n,o)}var Y={name:"",about:"",avatar:"",_id:"",cohort:""},D=document.querySelector(".profile__name"),H=document.querySelector(".profile__profession"),B=document.querySelector(".profile__picture");function J(){return Y}function z(t){D.textContent=t.name,H.textContent=t.about,B.src=t.avatar}function M(){return R.apply(this,arguments)}function R(){var t;return t=I().mark((function t(){var e;return I().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return t.prev=0,t.next=3,tt();case 3:return e=t.sent,Object.assign(Y,e),z(J()),t.abrupt("return",e);case 9:t.prev=9,t.t0=t.catch(0),console.log("Ошибка : ".concat(t.t0.message));case 12:case"end":return t.stop()}}),t,null,[[0,9]])})),R=function(){var e=this,r=arguments;return new Promise((function(n,o){var i=t.apply(e,r);function a(t){U(i,n,o,a,c,"next",t)}function c(t){U(i,n,o,a,c,"throw",t)}a(void 0)}))},R.apply(this,arguments)}function W(t){return W="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},W(t)}function $(){$=function(){return t};var t={},e=Object.prototype,r=e.hasOwnProperty,n=Object.defineProperty||function(t,e,r){t[e]=r.value},o="function"==typeof Symbol?Symbol:{},i=o.iterator||"@@iterator",a=o.asyncIterator||"@@asyncIterator",c=o.toStringTag||"@@toStringTag";function u(t,e,r){return Object.defineProperty(t,e,{value:r,enumerable:!0,configurable:!0,writable:!0}),t[e]}try{u({},"")}catch(t){u=function(t,e,r){return t[e]=r}}function s(t,e,r,o){var i=e&&e.prototype instanceof p?e:p,a=Object.create(i.prototype),c=new k(o||[]);return n(a,"_invoke",{value:x(t,r,c)}),a}function l(t,e,r){try{return{type:"normal",arg:t.call(e,r)}}catch(t){return{type:"throw",arg:t}}}t.wrap=s;var f={};function p(){}function h(){}function v(){}var d={};u(d,i,(function(){return this}));var y=Object.getPrototypeOf,m=y&&y(y(S([])));m&&m!==e&&r.call(m,i)&&(d=m);var g=v.prototype=p.prototype=Object.create(d);function w(t){["next","throw","return"].forEach((function(e){u(t,e,(function(t){return this._invoke(e,t)}))}))}function b(t,e){function o(n,i,a,c){var u=l(t[n],t,i);if("throw"!==u.type){var s=u.arg,f=s.value;return f&&"object"==W(f)&&r.call(f,"__await")?e.resolve(f.__await).then((function(t){o("next",t,a,c)}),(function(t){o("throw",t,a,c)})):e.resolve(f).then((function(t){s.value=t,a(s)}),(function(t){return o("throw",t,a,c)}))}c(u.arg)}var i;n(this,"_invoke",{value:function(t,r){function n(){return new e((function(e,n){o(t,r,e,n)}))}return i=i?i.then(n,n):n()}})}function x(t,e,r){var n="suspendedStart";return function(o,i){if("executing"===n)throw new Error("Generator is already running");if("completed"===n){if("throw"===o)throw i;return{value:void 0,done:!0}}for(r.method=o,r.arg=i;;){var a=r.delegate;if(a){var c=_(a,r);if(c){if(c===f)continue;return c}}if("next"===r.method)r.sent=r._sent=r.arg;else if("throw"===r.method){if("suspendedStart"===n)throw n="completed",r.arg;r.dispatchException(r.arg)}else"return"===r.method&&r.abrupt("return",r.arg);n="executing";var u=l(t,e,r);if("normal"===u.type){if(n=r.done?"completed":"suspendedYield",u.arg===f)continue;return{value:u.arg,done:r.done}}"throw"===u.type&&(n="completed",r.method="throw",r.arg=u.arg)}}}function _(t,e){var r=e.method,n=t.iterator[r];if(void 0===n)return e.delegate=null,"throw"===r&&t.iterator.return&&(e.method="return",e.arg=void 0,_(t,e),"throw"===e.method)||"return"!==r&&(e.method="throw",e.arg=new TypeError("The iterator does not provide a '"+r+"' method")),f;var o=l(n,t.iterator,e.arg);if("throw"===o.type)return e.method="throw",e.arg=o.arg,e.delegate=null,f;var i=o.arg;return i?i.done?(e[t.resultName]=i.value,e.next=t.nextLoc,"return"!==e.method&&(e.method="next",e.arg=void 0),e.delegate=null,f):i:(e.method="throw",e.arg=new TypeError("iterator result is not an object"),e.delegate=null,f)}function L(t){var e={tryLoc:t[0]};1 in t&&(e.catchLoc=t[1]),2 in t&&(e.finallyLoc=t[2],e.afterLoc=t[3]),this.tryEntries.push(e)}function E(t){var e=t.completion||{};e.type="normal",delete e.arg,t.completion=e}function k(t){this.tryEntries=[{tryLoc:"root"}],t.forEach(L,this),this.reset(!0)}function S(t){if(t){var e=t[i];if(e)return e.call(t);if("function"==typeof t.next)return t;if(!isNaN(t.length)){var n=-1,o=function e(){for(;++n<t.length;)if(r.call(t,n))return e.value=t[n],e.done=!1,e;return e.value=void 0,e.done=!0,e};return o.next=o}}return{next:O}}function O(){return{value:void 0,done:!0}}return h.prototype=v,n(g,"constructor",{value:v,configurable:!0}),n(v,"constructor",{value:h,configurable:!0}),h.displayName=u(v,c,"GeneratorFunction"),t.isGeneratorFunction=function(t){var e="function"==typeof t&&t.constructor;return!!e&&(e===h||"GeneratorFunction"===(e.displayName||e.name))},t.mark=function(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,v):(t.__proto__=v,u(t,c,"GeneratorFunction")),t.prototype=Object.create(g),t},t.awrap=function(t){return{__await:t}},w(b.prototype),u(b.prototype,a,(function(){return this})),t.AsyncIterator=b,t.async=function(e,r,n,o,i){void 0===i&&(i=Promise);var a=new b(s(e,r,n,o),i);return t.isGeneratorFunction(r)?a:a.next().then((function(t){return t.done?t.value:a.next()}))},w(g),u(g,c,"Generator"),u(g,i,(function(){return this})),u(g,"toString",(function(){return"[object Generator]"})),t.keys=function(t){var e=Object(t),r=[];for(var n in e)r.push(n);return r.reverse(),function t(){for(;r.length;){var n=r.pop();if(n in e)return t.value=n,t.done=!1,t}return t.done=!0,t}},t.values=S,k.prototype={constructor:k,reset:function(t){if(this.prev=0,this.next=0,this.sent=this._sent=void 0,this.done=!1,this.delegate=null,this.method="next",this.arg=void 0,this.tryEntries.forEach(E),!t)for(var e in this)"t"===e.charAt(0)&&r.call(this,e)&&!isNaN(+e.slice(1))&&(this[e]=void 0)},stop:function(){this.done=!0;var t=this.tryEntries[0].completion;if("throw"===t.type)throw t.arg;return this.rval},dispatchException:function(t){if(this.done)throw t;var e=this;function n(r,n){return a.type="throw",a.arg=t,e.next=r,n&&(e.method="next",e.arg=void 0),!!n}for(var o=this.tryEntries.length-1;o>=0;--o){var i=this.tryEntries[o],a=i.completion;if("root"===i.tryLoc)return n("end");if(i.tryLoc<=this.prev){var c=r.call(i,"catchLoc"),u=r.call(i,"finallyLoc");if(c&&u){if(this.prev<i.catchLoc)return n(i.catchLoc,!0);if(this.prev<i.finallyLoc)return n(i.finallyLoc)}else if(c){if(this.prev<i.catchLoc)return n(i.catchLoc,!0)}else{if(!u)throw new Error("try statement without catch or finally");if(this.prev<i.finallyLoc)return n(i.finallyLoc)}}}},abrupt:function(t,e){for(var n=this.tryEntries.length-1;n>=0;--n){var o=this.tryEntries[n];if(o.tryLoc<=this.prev&&r.call(o,"finallyLoc")&&this.prev<o.finallyLoc){var i=o;break}}i&&("break"===t||"continue"===t)&&i.tryLoc<=e&&e<=i.finallyLoc&&(i=null);var a=i?i.completion:{};return a.type=t,a.arg=e,i?(this.method="next",this.next=i.finallyLoc,f):this.complete(a)},complete:function(t,e){if("throw"===t.type)throw t.arg;return"break"===t.type||"continue"===t.type?this.next=t.arg:"return"===t.type?(this.rval=this.arg=t.arg,this.method="return",this.next="end"):"normal"===t.type&&e&&(this.next=e),f},finish:function(t){for(var e=this.tryEntries.length-1;e>=0;--e){var r=this.tryEntries[e];if(r.finallyLoc===t)return this.complete(r.completion,r.afterLoc),E(r),f}},catch:function(t){for(var e=this.tryEntries.length-1;e>=0;--e){var r=this.tryEntries[e];if(r.tryLoc===t){var n=r.completion;if("throw"===n.type){var o=n.arg;E(r)}return o}}throw new Error("illegal catch attempt")},delegateYield:function(t,e,r){return this.delegate={iterator:S(t),resultName:e,nextLoc:r},"next"===this.method&&(this.arg=void 0),f}},t}function K(t,e,r,n,o,i,a){try{var c=t[i](a),u=c.value}catch(t){return void r(t)}c.done?e(u):Promise.resolve(u).then(n,o)}function Q(t){return function(){var e=this,r=arguments;return new Promise((function(n,o){var i=t.apply(e,r);function a(t){K(i,n,o,a,c,"next",t)}function c(t){K(i,n,o,a,c,"throw",t)}a(void 0)}))}}var V={baseUrl:"https://nomoreparties.co/v1/wbf-cohort-6",headers:{authorization:"99d97c75-629e-46fe-8490-24ad8926f786","Content-Type":"application/json"}};function X(t,e){return Z.apply(this,arguments)}function Z(){return(Z=Q($().mark((function t(e,r){var n,o;return $().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return t.prev=0,t.next=3,fetch(e,r);case 3:if((n=t.sent).ok){t.next=8;break}throw new Error("HTTP error: ${response.status}");case 8:return t.next=10,n.json();case 10:return t.abrupt("return",t.sent);case 11:t.next=29;break;case 13:if(t.prev=13,t.t0=t.catch(0),o="".concat(t.t0.name,": ").concat(t.t0.message,"\\nСтек вызовов: ").concat(t.t0.stack,"\\nФайл: ").concat(t.t0.fileName,"\\nСтрока: ").concat(t.t0.lineNumber,"\\nКолонка: ").concat(t.t0.columnNumber,"\\nОписание: ").concat(t.t0.description),!(t.t0 instanceof TypeError)){t.next=20;break}throw new TypeError("Type Error: ".concat(o,". "));case 20:if("AbortError"!==t.t0.name){t.next=24;break}throw new Error("Запрос был прерван: ".concat(o));case 24:if(!t.t0.message.startsWith("HTTP error")){t.next=28;break}throw new Error("Ошибка HTTP: ".concat(o));case 28:throw new Error("Неизвестная ошибка: ".concat(o));case 29:case"end":return t.stop()}}),t,null,[[0,13]])})))).apply(this,arguments)}function tt(){return et.apply(this,arguments)}function et(){return(et=Q($().mark((function t(){var e,r;return $().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return e="".concat(V.baseUrl,"/users/me"),r={headers:V.headers},t.next=4,X(e,r);case 4:return t.abrupt("return",t.sent);case 5:case"end":return t.stop()}}),t)})))).apply(this,arguments)}function rt(t,e){return nt.apply(this,arguments)}function nt(){return(nt=Q($().mark((function t(e,r){var n,o,i;return $().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return n="".concat(V.baseUrl,"/users/me"),o={method:"PATCH",headers:V.headers,body:JSON.stringify({name:e,about:r})},t.prev=2,t.next=5,X(n,o);case 5:return t.abrupt("return",t.sent);case 8:throw t.prev=8,t.t0=t.catch(2),i="".concat(t.t0.name,": ").concat(t.t0.message,"\\nСтек вызовов: ").concat(t.t0.stack,"\\nФайл: ").concat(t.t0.fileName,"\\nСтрока: ").concat(t.t0.lineNumber,"\\nКолонка: ").concat(t.t0.columnNumber,"\\nОписание: ").concat(t.t0.description),new Error("Ошибка загрузки данных о профиле на сервер. \n"+i);case 12:case"end":return t.stop()}}),t,null,[[2,8]])})))).apply(this,arguments)}function ot(t){return it.apply(this,arguments)}function it(){return(it=Q($().mark((function t(e){var r,n,o;return $().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return r="".concat(V.baseUrl,"/users/me/avatar"),n={method:"PATCH",headers:V.headers,body:JSON.stringify({avatar:e})},t.prev=2,t.next=5,X(r,n);case 5:return t.abrupt("return",t.sent);case 8:throw t.prev=8,t.t0=t.catch(2),o="".concat(t.t0.name,": ").concat(t.t0.message,"\\nСтек вызовов: ").concat(t.t0.stack,"\\nФайл: ").concat(t.t0.fileName,"\\nСтрока: ").concat(t.t0.lineNumber,"\\nКолонка: ").concat(t.t0.columnNumber,"\\nОписание: ").concat(t.t0.description),new Error("Не удалось изменить аватар. \n"+o);case 12:case"end":return t.stop()}}),t,null,[[2,8]])})))).apply(this,arguments)}function at(){return ct.apply(this,arguments)}function ct(){return(ct=Q($().mark((function t(){var e,r;return $().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return e="".concat(V.baseUrl,"/cards"),r=Object.assign({method:"GET"},V),t.next=4,X(e,r);case 4:return t.abrupt("return",t.sent);case 5:case"end":return t.stop()}}),t)})))).apply(this,arguments)}function ut(t,e){return st.apply(this,arguments)}function st(){return(st=Q($().mark((function t(e,r){var n,o,i,a;return $().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return n="".concat(V.baseUrl,"/cards"),o={method:"POST",headers:V.headers,body:JSON.stringify({name:e,link:r})},t.next=4,X(n,o);case 4:return i=t.sent,t.prev=5,t.abrupt("return",i);case 9:throw t.prev=9,t.t0=t.catch(5),a="".concat(t.t0.name,": ").concat(t.t0.message,"\\nСтек вызовов: ").concat(t.t0.stack,"\\nФайл: ").concat(t.t0.fileName,"\\nСтрока: ").concat(t.t0.lineNumber,"\\nКолонка: ").concat(t.t0.columnNumber,"\\nОписание: ").concat(t.t0.description),new Error("Не удалось создать карточку. \n"+a);case 13:case"end":return t.stop()}}),t,null,[[5,9]])})))).apply(this,arguments)}function lt(t){return ft.apply(this,arguments)}function ft(){return(ft=Q($().mark((function t(e){var r,n;return $().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return r="".concat(V.baseUrl,"/cards/").concat(e),n={method:"DELETE",headers:V.headers},t.next=4,X(r,n);case 4:return t.abrupt("return",t.sent);case 5:case"end":return t.stop()}}),t)})))).apply(this,arguments)}function pt(t){return ht.apply(this,arguments)}function ht(){return(ht=Q($().mark((function t(e){var r,n;return $().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return r="".concat(V.baseUrl,"/cards/likes/").concat(e),n={method:"PUT",headers:V.headers},t.next=4,X(r,n);case 4:return t.abrupt("return",t.sent);case 5:case"end":return t.stop()}}),t)})))).apply(this,arguments)}function vt(t){return dt.apply(this,arguments)}function dt(){return(dt=Q($().mark((function t(e){var r,n;return $().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return r="".concat(V.baseUrl,"/cards/likes/").concat(e),n={method:"DELETE",headers:V.headers},t.next=4,X(r,n);case 4:return t.abrupt("return",t.sent);case 5:case"end":return t.stop()}}),t)})))).apply(this,arguments)}function yt(t){return yt="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},yt(t)}function mt(){mt=function(){return t};var t={},e=Object.prototype,r=e.hasOwnProperty,n=Object.defineProperty||function(t,e,r){t[e]=r.value},o="function"==typeof Symbol?Symbol:{},i=o.iterator||"@@iterator",a=o.asyncIterator||"@@asyncIterator",c=o.toStringTag||"@@toStringTag";function u(t,e,r){return Object.defineProperty(t,e,{value:r,enumerable:!0,configurable:!0,writable:!0}),t[e]}try{u({},"")}catch(t){u=function(t,e,r){return t[e]=r}}function s(t,e,r,o){var i=e&&e.prototype instanceof p?e:p,a=Object.create(i.prototype),c=new k(o||[]);return n(a,"_invoke",{value:x(t,r,c)}),a}function l(t,e,r){try{return{type:"normal",arg:t.call(e,r)}}catch(t){return{type:"throw",arg:t}}}t.wrap=s;var f={};function p(){}function h(){}function v(){}var d={};u(d,i,(function(){return this}));var y=Object.getPrototypeOf,m=y&&y(y(S([])));m&&m!==e&&r.call(m,i)&&(d=m);var g=v.prototype=p.prototype=Object.create(d);function w(t){["next","throw","return"].forEach((function(e){u(t,e,(function(t){return this._invoke(e,t)}))}))}function b(t,e){function o(n,i,a,c){var u=l(t[n],t,i);if("throw"!==u.type){var s=u.arg,f=s.value;return f&&"object"==yt(f)&&r.call(f,"__await")?e.resolve(f.__await).then((function(t){o("next",t,a,c)}),(function(t){o("throw",t,a,c)})):e.resolve(f).then((function(t){s.value=t,a(s)}),(function(t){return o("throw",t,a,c)}))}c(u.arg)}var i;n(this,"_invoke",{value:function(t,r){function n(){return new e((function(e,n){o(t,r,e,n)}))}return i=i?i.then(n,n):n()}})}function x(t,e,r){var n="suspendedStart";return function(o,i){if("executing"===n)throw new Error("Generator is already running");if("completed"===n){if("throw"===o)throw i;return{value:void 0,done:!0}}for(r.method=o,r.arg=i;;){var a=r.delegate;if(a){var c=_(a,r);if(c){if(c===f)continue;return c}}if("next"===r.method)r.sent=r._sent=r.arg;else if("throw"===r.method){if("suspendedStart"===n)throw n="completed",r.arg;r.dispatchException(r.arg)}else"return"===r.method&&r.abrupt("return",r.arg);n="executing";var u=l(t,e,r);if("normal"===u.type){if(n=r.done?"completed":"suspendedYield",u.arg===f)continue;return{value:u.arg,done:r.done}}"throw"===u.type&&(n="completed",r.method="throw",r.arg=u.arg)}}}function _(t,e){var r=e.method,n=t.iterator[r];if(void 0===n)return e.delegate=null,"throw"===r&&t.iterator.return&&(e.method="return",e.arg=void 0,_(t,e),"throw"===e.method)||"return"!==r&&(e.method="throw",e.arg=new TypeError("The iterator does not provide a '"+r+"' method")),f;var o=l(n,t.iterator,e.arg);if("throw"===o.type)return e.method="throw",e.arg=o.arg,e.delegate=null,f;var i=o.arg;return i?i.done?(e[t.resultName]=i.value,e.next=t.nextLoc,"return"!==e.method&&(e.method="next",e.arg=void 0),e.delegate=null,f):i:(e.method="throw",e.arg=new TypeError("iterator result is not an object"),e.delegate=null,f)}function L(t){var e={tryLoc:t[0]};1 in t&&(e.catchLoc=t[1]),2 in t&&(e.finallyLoc=t[2],e.afterLoc=t[3]),this.tryEntries.push(e)}function E(t){var e=t.completion||{};e.type="normal",delete e.arg,t.completion=e}function k(t){this.tryEntries=[{tryLoc:"root"}],t.forEach(L,this),this.reset(!0)}function S(t){if(t){var e=t[i];if(e)return e.call(t);if("function"==typeof t.next)return t;if(!isNaN(t.length)){var n=-1,o=function e(){for(;++n<t.length;)if(r.call(t,n))return e.value=t[n],e.done=!1,e;return e.value=void 0,e.done=!0,e};return o.next=o}}return{next:O}}function O(){return{value:void 0,done:!0}}return h.prototype=v,n(g,"constructor",{value:v,configurable:!0}),n(v,"constructor",{value:h,configurable:!0}),h.displayName=u(v,c,"GeneratorFunction"),t.isGeneratorFunction=function(t){var e="function"==typeof t&&t.constructor;return!!e&&(e===h||"GeneratorFunction"===(e.displayName||e.name))},t.mark=function(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,v):(t.__proto__=v,u(t,c,"GeneratorFunction")),t.prototype=Object.create(g),t},t.awrap=function(t){return{__await:t}},w(b.prototype),u(b.prototype,a,(function(){return this})),t.AsyncIterator=b,t.async=function(e,r,n,o,i){void 0===i&&(i=Promise);var a=new b(s(e,r,n,o),i);return t.isGeneratorFunction(r)?a:a.next().then((function(t){return t.done?t.value:a.next()}))},w(g),u(g,c,"Generator"),u(g,i,(function(){return this})),u(g,"toString",(function(){return"[object Generator]"})),t.keys=function(t){var e=Object(t),r=[];for(var n in e)r.push(n);return r.reverse(),function t(){for(;r.length;){var n=r.pop();if(n in e)return t.value=n,t.done=!1,t}return t.done=!0,t}},t.values=S,k.prototype={constructor:k,reset:function(t){if(this.prev=0,this.next=0,this.sent=this._sent=void 0,this.done=!1,this.delegate=null,this.method="next",this.arg=void 0,this.tryEntries.forEach(E),!t)for(var e in this)"t"===e.charAt(0)&&r.call(this,e)&&!isNaN(+e.slice(1))&&(this[e]=void 0)},stop:function(){this.done=!0;var t=this.tryEntries[0].completion;if("throw"===t.type)throw t.arg;return this.rval},dispatchException:function(t){if(this.done)throw t;var e=this;function n(r,n){return a.type="throw",a.arg=t,e.next=r,n&&(e.method="next",e.arg=void 0),!!n}for(var o=this.tryEntries.length-1;o>=0;--o){var i=this.tryEntries[o],a=i.completion;if("root"===i.tryLoc)return n("end");if(i.tryLoc<=this.prev){var c=r.call(i,"catchLoc"),u=r.call(i,"finallyLoc");if(c&&u){if(this.prev<i.catchLoc)return n(i.catchLoc,!0);if(this.prev<i.finallyLoc)return n(i.finallyLoc)}else if(c){if(this.prev<i.catchLoc)return n(i.catchLoc,!0)}else{if(!u)throw new Error("try statement without catch or finally");if(this.prev<i.finallyLoc)return n(i.finallyLoc)}}}},abrupt:function(t,e){for(var n=this.tryEntries.length-1;n>=0;--n){var o=this.tryEntries[n];if(o.tryLoc<=this.prev&&r.call(o,"finallyLoc")&&this.prev<o.finallyLoc){var i=o;break}}i&&("break"===t||"continue"===t)&&i.tryLoc<=e&&e<=i.finallyLoc&&(i=null);var a=i?i.completion:{};return a.type=t,a.arg=e,i?(this.method="next",this.next=i.finallyLoc,f):this.complete(a)},complete:function(t,e){if("throw"===t.type)throw t.arg;return"break"===t.type||"continue"===t.type?this.next=t.arg:"return"===t.type?(this.rval=this.arg=t.arg,this.method="return",this.next="end"):"normal"===t.type&&e&&(this.next=e),f},finish:function(t){for(var e=this.tryEntries.length-1;e>=0;--e){var r=this.tryEntries[e];if(r.finallyLoc===t)return this.complete(r.completion,r.afterLoc),E(r),f}},catch:function(t){for(var e=this.tryEntries.length-1;e>=0;--e){var r=this.tryEntries[e];if(r.tryLoc===t){var n=r.completion;if("throw"===n.type){var o=n.arg;E(r)}return o}}throw new Error("illegal catch attempt")},delegateYield:function(t,e,r){return this.delegate={iterator:S(t),resultName:e,nextLoc:r},"next"===this.method&&(this.arg=void 0),f}},t}function gt(t,e,r,n,o,i,a){try{var c=t[i](a),u=c.value}catch(t){return void r(t)}c.done?e(u):Promise.resolve(u).then(n,o)}function wt(){var t;return t=mt().mark((function t(){return mt().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return t.prev=0,t.prev=1,t.next=4,M();case 4:t.next=9;break;case 6:t.prev=6,t.t0=t.catch(1),console.log("Не удалось обновить профиль пользователя. Ошибка: ".concat(t.t0.message));case 9:return document.querySelectorAll(".popup__close-btn").forEach((function(t){var e=t.closest(".popup");e.addEventListener("click",(function(t){event.target.classList.contains("popup")&&x(e)})),t.addEventListener("click",(function(){return x(e)}))})),P(),e=void 0,r=void 0,n=void 0,o=void 0,e=document.querySelector(".profile"),r=document.querySelector(".profile__change-avatar-button"),n=e.querySelector(".profile__edit-btn"),o=e.querySelector(".profile__add-btn"),n.addEventListener("click",(function(){var t,e;w(S),t=D.textContent,e=H.textContent,O.value=t,j.value=e,b(S)})),o.addEventListener("click",(function(t){t.stopPropagation(),w(T),b(T)})),r.addEventListener("click",(function(t){t.stopPropagation(),w(G),b(G)})),F(),q(),f({formSelector:".popup__form",inputSelector:".popup__input",submitButtonSelector:".popup__button",inactiveButtonClass:"popup__button_disabled",inputErrorClass:"popup__input_type_error",errorClass:"popup__error_visible"}),t.t1=u,t.next=18,at();case 18:t.t2=t.sent,(0,t.t1)(t.t2),t.next=25;break;case 22:t.prev=22,t.t3=t.catch(0),console.log("Ошибка на странице: ".concat(t.t3.message));case 25:case"end":return t.stop()}var e,r,n,o}),t,null,[[0,22],[1,6]])})),wt=function(){var e=this,r=arguments;return new Promise((function(n,o){var i=t.apply(e,r);function a(t){gt(i,n,o,a,c,"next",t)}function c(t){gt(i,n,o,a,c,"throw",t)}a(void 0)}))},wt.apply(this,arguments)}!function(){wt.apply(this,arguments)}()})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+var __webpack_exports__ = {};
+
+;// CONCATENATED MODULE: ./src/components/utils.js
+
+
+function checkServerResponseKeys(object, expectedKeysArray) {
+  if (!expectedKeysArray.every((key) => object.hasOwnProperty(key))) {
+    throw new ReferenceError(
+      `Объект ${object} не содержит одного или более свойств из списка ${expectedKeysArray}`
+    );
+  }
+}
+
+
+
+;// CONCATENATED MODULE: ./src/components/card.js
+
+
+
+
+
+
+
+const placeToInsert = document.querySelector(".gallery__cards");
+const cardTemplate = document.querySelector(".card__template").content;
+const cardObjectExpectedKeys = [
+  "likes",
+  "_id",
+  "name",
+  "link",
+  "owner",
+  "createdAt",
+];
+function getCard(cardObject) {
+  checkServerResponseKeys(cardObject, cardObjectExpectedKeys);
+  async function handleLikeButton(cardObject, likeButton, likesCountElement) {
+    try {
+      const cardId = cardObject._id;
+      const isUserAlreadyLikedCard = likeButton.classList.contains(
+        "card__like-btn_checked"
+      );
+      if (isUserAlreadyLikedCard) {
+        const cardFromServer = await removeLikeFromCard(cardId);
+        likesCountElement.textContent = cardFromServer.likes.length;
+        likeButton.classList.remove("card__like-btn_checked");
+      } else {
+        const cardFromServer = await setLikeOnCard(cardId);
+        likesCountElement.textContent = cardFromServer.likes.length;
+        likeButton.classList.add("card__like-btn_checked");
+      }
+    } catch (error) {
+      console.log(
+        `Не удалось поставить или убрать лайк у карточки. Ошибка: ${error.message}`
+      );
+    }
+  }
+  function checkIfUserAlreadyLikedCard(cardObject) {
+    const userId = getLocalProfileObject()._id;
+    return cardObject.likes.some((like) => like._id === userId);
+  }
+
+  const cardElement = cardTemplate.cloneNode(true);
+  const imageElement = cardElement.querySelector(".card__image");
+  const nameElement = cardElement.querySelector(".card__title");
+  const deleteCardButton = cardElement.querySelector(".card__delete-btn");
+  const likeButton = cardElement.querySelector(".card__like-btn");
+  const likesCountElement = cardElement.querySelector(".card__likes-count");
+  const isUserAlreadyLikedCard = checkIfUserAlreadyLikedCard(cardObject);
+  if (isUserAlreadyLikedCard) {
+    likeButton.classList.add("card__like-btn_checked");
+  }
+  likesCountElement.textContent = cardObject.likes.length;
+  const imageLink = cardObject.link;
+  const imageName = cardObject.name;
+  imageElement.src = imageLink;
+  imageElement.alt = imageName;
+  function openImagePopUp() {
+    changeImagePopUpData(imageLink, imageName);
+    openPopUp(showImagePopUp);
+  }
+  imageElement.addEventListener("click", openImagePopUp);
+  nameElement.textContent = cardObject.name;
+  likeButton.addEventListener("click", async (event) => {
+    try {
+      await handleLikeButton(cardObject, likeButton, likesCountElement);
+    } catch (error) {
+      console.log(`Ошибка: ${error.message}`);
+    }
+  });
+  if (cardObject.owner._id !== getLocalProfileObject()._id) {
+    deleteCardButton.remove();
+  } else {
+    deleteCardButton.addEventListener("click", async (event) => {
+      try {
+        await deleteCardFromServer(cardObject._id);
+        deleteCardButton.closest(".card").remove();
+      } catch (error) {
+        console.log(`Не удалось удалить карточку с сервера. ${error.message}`);
+      }
+    });
+  }
+  return cardElement;
+}
+function createCard(cardObject) {
+  const clonedTemplate = getCard(cardObject);
+  placeToInsert.prepend(clonedTemplate);
+}
+function createCardsFromList(listWithCards) {
+  listWithCards.forEach(function (card) {
+    createCard(card);
+  });
+}
+
+
+
+;// CONCATENATED MODULE: ./src/components/validate.js
+
+
+const hasInvalidInput = function (inputList) {
+  return Array.from(inputList).some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+const toggleButtonState = function (
+  inputList,
+  buttonElement,
+  inactiveButtonClass
+) {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add(inactiveButtonClass);
+    buttonElement.disabled = true;
+  } else {
+    buttonElement.classList.remove(inactiveButtonClass);
+    buttonElement.disabled = false;
+  }
+};
+const showError = (
+  formElement,
+  inputElement,
+  errorMessage,
+  inputErrorClass,
+  errorClass
+) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add(errorClass);
+  inputElement.classList.add(inputErrorClass);
+};
+const hideError = (formElement, inputElement, inputErrorClass, errorClass) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  errorElement.classList.remove(errorClass);
+  inputElement.classList.remove(inputErrorClass);
+  errorElement.textContent = "";
+};
+
+const checkInputValidity = function (
+  formElement,
+  inputElement,
+  inputErrorClass,
+  errorClass
+) {
+  if (inputElement.validity.valid) {
+    hideError(
+      formElement,
+      inputElement,
+      inputErrorClass,
+      inputErrorClass,
+      errorClass
+    );
+  } else {
+    showError(
+      formElement,
+      inputElement,
+      inputElement.validationMessage,
+      inputErrorClass,
+      errorClass
+    );
+  }
+};
+
+const setEventListeners = function (
+  formElement,
+  inputSelector,
+  buttonSelector,
+  inactiveButtonClass,
+  inputErrorClass,
+  errorClass
+) {
+  const inputList = Array.from(formElement.querySelectorAll(inputSelector));
+  const buttonElement = formElement.querySelector(buttonSelector);
+  toggleButtonState(inputList, buttonElement, inactiveButtonClass);
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", function (evt) {
+      checkInputValidity(
+        formElement,
+        inputElement,
+        inputErrorClass,
+        errorClass
+      );
+      toggleButtonState(inputList, buttonElement, inactiveButtonClass);
+    });
+  });
+};
+const enableValidation = function (configObject) {
+  const forms = document.querySelectorAll(configObject.formSelector);
+  forms.forEach((formElement) => {
+    setEventListeners(
+      formElement,
+      configObject.inputSelector,
+      configObject.submitButtonSelector,
+      configObject.inactiveButtonClass,
+      configObject.inputErrorClass,
+      configObject.errorClass
+    );
+  });
+};
+
+
+
+;// CONCATENATED MODULE: ./src/components/modal.js
+
+
+
+
+
+
+const showImagePopUp = document.querySelector(".popup_for-image");
+const showPopUpImage = showImagePopUp.querySelector(".popup__image");
+const showPopUpImageCaption = showImagePopUp.querySelector(
+  ".popup__image-caption"
+);
+
+function resetPopUp(popUp) {
+  const popupInputs = popUp.querySelectorAll(".popup__input");
+  const popUpForm = popUp.querySelector(".popup__form");
+  popUpForm.reset();
+  popupInputs.forEach((inputElement) => {
+    inputElement.classList.remove("popup__input_type_error");
+  });
+  const popupErrors = popUp.querySelectorAll(".popup__error");
+  popupErrors.forEach((errorElement) => {
+    errorElement.classList.remove(".popup__error_visible");
+    errorElement.textContent = "";
+  });
+  const submitButton = popUp.querySelector(".popup__button");
+  toggleButtonState(popupInputs, submitButton, "popup__button_disabled");
+}
+
+function openPopUp(popUp) {
+  popUp.classList.remove("popup_state_closed");
+  popUp.classList.add("popup_state_opened");
+  window.addEventListener("keydown", handleEscapeKeyEvent);
+}
+function closePopUp(popUp) {
+  popUp.classList.add("popup_state_closed");
+  popUp.classList.remove("popup_state_opened");
+  window.removeEventListener("keydown", handleEscapeKeyEvent);
+}
+async function uploadProfileData(profileObject) {
+  try {
+    return await uploadUserProfileToServer(
+      profileObject.name,
+      profileObject.about
+    );
+  } catch (error) {
+    console.log(
+      `Ошибка обновления информации профиля. Ошибка: ${error.message}`
+    );
+  }
+}
+
+function showLoadingAnimationOnButton(buttonElement) {
+  buttonElement.classList.add("popup__button_loading");
+  buttonElement.disabled = true;
+}
+function hideLoadingAnimationOnButton(buttonElement) {
+  buttonElement.classList.remove("popup__button_loading");
+  buttonElement.disabled = false;
+}
+
+const editProfilePopUp = document.querySelector(".popup_for-editing-profile");
+const popUpNameInput = editProfilePopUp.querySelector(".popup__name-input");
+const popUpAboutInput = editProfilePopUp.querySelector(
+  ".popup__profession-input"
+);
+function setNameAndAboutToEditPopUp(name, about) {
+  popUpNameInput.value = name;
+  popUpAboutInput.value = about;
+}
+const handleEditProfilePopUp = function () {
+  const saveButton = editProfilePopUp.querySelector(".popup__button");
+  const editProfilePopUpForm = editProfilePopUp.querySelector(".popup__form");
+  editProfilePopUpForm.addEventListener("submit", async function (evt) {
+    evt.preventDefault();
+    evt.stopPropagation();
+    const inputList = [popUpNameInput, popUpAboutInput];
+    if (!hasInvalidInput(inputList)) {
+      showLoadingAnimationOnButton(saveButton);
+      try {
+        const profileDataFromServer = await uploadProfileData({
+          name: popUpNameInput.value,
+          about: popUpAboutInput.value,
+        });
+        updateProfileInfoOnPage(profileDataFromServer);
+        closePopUp(editProfilePopUp);
+      } catch (error) {
+        console.log(
+          `Не удалось обновить данные профиля. Ошибка: ${error.message}`
+        );
+      } finally {
+        hideLoadingAnimationOnButton(saveButton);
+      }
+    }
+  });
+};
+
+const changeImagePopUpData = function (imageURL, imageCaption) {
+  showPopUpImage.src = imageURL;
+  showPopUpImage.alt = imageCaption;
+  showPopUpImageCaption.textContent = imageCaption;
+};
+const addNewPlacePopUp = document.querySelector(".popup_for-adding-place");
+const handleNewPlacePopUp = function () {
+  const addNewPlaceBtn = addNewPlacePopUp.querySelector(".popup__button");
+  const placeName = addNewPlacePopUp.querySelector(".popup__place-name-input");
+  const placeUrl = addNewPlacePopUp.querySelector(".popup__place-url-input");
+  const newPlacePopUpForm = addNewPlacePopUp.querySelector(".popup__form");
+  newPlacePopUpForm.addEventListener("submit", async function (evt) {
+    evt.preventDefault();
+    showLoadingAnimationOnButton(addNewPlaceBtn);
+    try {
+      const cardFromServer = await uploadCardOnServer(
+        placeName.value,
+        placeUrl.value
+      );
+      createCard(cardFromServer);
+      closePopUp(addNewPlacePopUp);
+    } catch (error) {
+      console.log(`Ошибка создания карточки. ${error.message}`);
+    } finally {
+      hideLoadingAnimationOnButton(addNewPlaceBtn);
+    }
+  });
+};
+
+const editAvatarPopUp = document.querySelector(
+  ".popup_for-updating-profile-avatar"
+);
+function handleEditAvatarPopUp() {
+  const editAvatarPopUpForm = editAvatarPopUp.querySelector(
+    ".popup__form-for-updating-profile-avatar"
+  );
+  const avatarUrlInput = editAvatarPopUp.querySelector(
+    ".popup__avatar-link-input"
+  );
+  const submitButton = editAvatarPopUpForm.querySelector(".popup__button");
+  async function handelSubmit(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    try {
+      showLoadingAnimationOnButton(submitButton);
+      const profileFromServer = await uploadNewAvatar(avatarUrlInput.value);
+      updateProfileInfoOnPage(profileFromServer);
+      closePopUp(editAvatarPopUp);
+    } catch (error) {
+      console.log(
+        `Не удалось обновить аватар пользователя. Ошибка: ${error.message}`
+      );
+    } finally {
+      hideLoadingAnimationOnButton(submitButton);
+    }
+  }
+  editAvatarPopUpForm.addEventListener("submit", handelSubmit);
+}
+function handleCloseButtonsAndPopUpOverlay() {
+  const closeButtons = document.querySelectorAll(".popup__close-btn");
+  closeButtons.forEach((button) => {
+    const popup = button.closest(".popup");
+    popup.addEventListener("click", (evt) => {
+      if (evt.target.classList.contains("popup")) {
+        closePopUp(popup);
+      }
+    });
+    button.addEventListener("click", () => closePopUp(popup));
+  });
+}
+
+function handleEscapeKeyEvent(event) {
+  if (event.key === "Escape") {
+    const openedPopUp = document.querySelector(".popup_state_opened");
+    closePopUp(openedPopUp);
+  }
+}
+
+
+
+;// CONCATENATED MODULE: ./src/components/profile.js
+
+
+
+const localProfileObject = {
+  name: "",
+  about: "",
+  avatar: "",
+  _id: "",
+  cohort: "",
+};
+const profileNameElement = document.querySelector(".profile__name");
+const profileAboutElement = document.querySelector(".profile__profession");
+const profileImageElement = document.querySelector(".profile__picture");
+function getLocalProfileObject() {
+  return localProfileObject;
+}
+function setLocalProfileObject(name, about, avatar) {
+  localProfileObject.name = name;
+  localProfileObject.about = about;
+  localProfileObject.avatar = avatar;
+}
+
+function updateProfileInfoOnPage(profileObject) {
+  profileNameElement.textContent = profileObject.name;
+  profileAboutElement.textContent = profileObject.about;
+  profileImageElement.src = profileObject.avatar;
+}
+
+async function updateProfileFromServer() {
+  try {
+    const profileDataFromServer = await getProfileDataFromServer();
+    Object.assign(localProfileObject, profileDataFromServer);
+    updateProfileInfoOnPage(getLocalProfileObject());
+    return profileDataFromServer;
+  } catch (error) {
+    console.log(`Ошибка : ${error.message}`);
+  }
+}
+
+function handleProfileBlock() {
+  const profileBlock = document.querySelector(".profile");
+  const avatarButton = document.querySelector(".profile__change-avatar-button");
+  const editProfileBtn = profileBlock.querySelector(".profile__edit-btn");
+  const addNewPictureBtn = profileBlock.querySelector(".profile__add-btn");
+  function openEditProfilePopUp() {
+    resetPopUp(editProfilePopUp);
+    setNameAndAboutToEditPopUp(
+      profileNameElement.textContent,
+      profileAboutElement.textContent
+    );
+    openPopUp(editProfilePopUp);
+  }
+  editProfileBtn.addEventListener("click", openEditProfilePopUp);
+  addNewPictureBtn.addEventListener("click", (evt) => {
+    evt.stopPropagation();
+    resetPopUp(addNewPlacePopUp);
+    openPopUp(addNewPlacePopUp);
+  });
+  avatarButton.addEventListener("click", (evt) => {
+    evt.stopPropagation();
+    resetPopUp(editAvatarPopUp);
+    openPopUp(editAvatarPopUp);
+  });
+}
+
+
+
+;// CONCATENATED MODULE: ./src/components/api.js
+
+
+
+
+const config = {
+  baseUrl: "https://nomoreparties.co/v1/wbf-cohort-6",
+  headers: {
+    authorization: "99d97c75-629e-46fe-8490-24ad8926f786",
+    "Content-Type": "application/json",
+  },
+};
+const profileObjectExpectedKeys = (/* unused pure expression or super */ null && (["name", "about", "avatar", "_id", "cohort"]));
+
+async function fetchData(requestUrl, options) {
+  try {
+    const response = await fetch(requestUrl, options);
+    if (!response.ok) {
+      throw new Error("HTTP error: ${response.status}");
+    } else {
+      return await response.json();
+    }
+  } catch (error) {
+    const errorMessage = `${error.name}: ${error.message}\\nСтек вызовов: ${error.stack}\\nФайл: ${error.fileName}\\nСтрока: ${error.lineNumber}\\nКолонка: ${error.columnNumber}\\nОписание: ${error.description}`;
+    if (error instanceof TypeError) {
+      throw new TypeError(`Type Error: ${errorMessage}. `);
+    } else if (error.name === "AbortError") {
+      throw new Error(`Запрос был прерван: ${errorMessage}`);
+    } else if (error.message.startsWith("HTTP error")) {
+      throw new Error(`Ошибка HTTP: ${errorMessage}`);
+    } else {
+      throw new Error(`Неизвестная ошибка: ${errorMessage}`);
+    }
+  }
+}
+async function getProfileDataFromServer() {
+  const getProfileApiPAth = `${config.baseUrl}/users/me`;
+  const options = {
+    headers: config.headers,
+  };
+  return await fetchData(getProfileApiPAth, options);
+}
+
+async function uploadUserProfileToServer(name, about) {
+  const updateProfileApiPAth = `${config.baseUrl}/users/me`;
+  const options = {
+    method: "PATCH",
+    headers: config.headers,
+    body: JSON.stringify({
+      name: name,
+      about: about,
+    }),
+  };
+  try {
+    return await fetchData(updateProfileApiPAth, options);
+  } catch (error) {
+    const errorMessage = `${error.name}: ${error.message}\\nСтек вызовов: ${error.stack}\\nФайл: ${error.fileName}\\nСтрока: ${error.lineNumber}\\nКолонка: ${error.columnNumber}\\nОписание: ${error.description}`;
+    throw new Error(
+      `Ошибка загрузки данных о профиле на сервер. \n` + errorMessage
+    );
+  }
+}
+
+async function uploadNewAvatar(avatarUrl) {
+  const uploadNewAvatarApiUrl = `${config.baseUrl}/users/me/avatar`;
+  const options = {
+    method: "PATCH",
+    headers: config.headers,
+    body: JSON.stringify({
+      avatar: avatarUrl,
+    }),
+  };
+  try {
+    return await fetchData(uploadNewAvatarApiUrl, options);
+  } catch (error) {
+    const errorMessage = `${error.name}: ${error.message}\\nСтек вызовов: ${error.stack}\\nФайл: ${error.fileName}\\nСтрока: ${error.lineNumber}\\nКолонка: ${error.columnNumber}\\nОписание: ${error.description}`;
+    throw new Error(`Не удалось изменить аватар. \n` + errorMessage);
+  }
+}
+
+async function getCardsFromServer() {
+  const getCardsFromServerUrl = `${config.baseUrl}/cards`;
+  const options = Object.assign({ method: "GET" }, config);
+  return await fetchData(getCardsFromServerUrl, options);
+}
+async function uploadCardOnServer(name, link) {
+  const uploadCardOnServerApiUrl = `${config.baseUrl}/cards`;
+  const options = {
+    method: "POST",
+    headers: config.headers,
+    body: JSON.stringify({
+      name: name,
+      link: link,
+    }),
+  };
+  const response = await fetchData(uploadCardOnServerApiUrl, options);
+  try {
+    return response;
+  } catch (error) {
+    const errorMessage = `${error.name}: ${error.message}\\nСтек вызовов: ${error.stack}\\nФайл: ${error.fileName}\\nСтрока: ${error.lineNumber}\\nКолонка: ${error.columnNumber}\\nОписание: ${error.description}`;
+    throw new Error(`Не удалось создать карточку. \n` + errorMessage);
+  }
+}
+async function deleteCardFromServer(cardId) {
+  const deleteCardApiURL = `${config.baseUrl}/cards/${cardId}`;
+  const options = {
+    method: "DELETE",
+    headers: config.headers,
+  };
+  return await fetchData(deleteCardApiURL, options);
+}
+
+async function setLikeOnCard(cardId) {
+  const deleteCardApiURL = `${config.baseUrl}/cards/likes/${cardId}`;
+  const options = {
+    method: "PUT",
+    headers: config.headers,
+  };
+  return await fetchData(deleteCardApiURL, options);
+}
+async function removeLikeFromCard(cardId) {
+  const deleteCardApiURL = `${config.baseUrl}/cards/likes/${cardId}`;
+  const options = {
+    method: "DELETE",
+    headers: config.headers,
+  };
+  return await fetchData(deleteCardApiURL, options);
+}
+
+
+;// CONCATENATED MODULE: ./src/index.js
+
+
+
+
+
+
+
+
+
+async function handleIndex() {
+  try {
+    try {
+      await updateProfileFromServer();
+    } catch (error) {
+      console.log(
+        `Не удалось обновить профиль пользователя. Ошибка: ${error.message}`
+      );
+    }
+    handleCloseButtonsAndPopUpOverlay();
+    handleEditProfilePopUp();
+    handleProfileBlock();
+    handleEditAvatarPopUp();
+    handleNewPlacePopUp();
+    enableValidation({
+      formSelector: ".popup__form",
+      inputSelector: ".popup__input",
+      submitButtonSelector: ".popup__button",
+      inactiveButtonClass: "popup__button_disabled",
+      inputErrorClass: "popup__input_type_error",
+      errorClass: "popup__error_visible",
+    });
+    createCardsFromList(await getCardsFromServer());
+  } catch (error) {
+    console.log(`Ошибка на странице: ${error.message}`);
+  }
+}
+
+handleIndex();
+
+/******/ })()
+;
+//# sourceMappingURL=main.js.map
