@@ -1,20 +1,11 @@
 "use strict";
 
 import { createCard } from "./card.js";
-import { hasInvalidInput } from "./validate.js";
+import { hasInvalidInput, toggleButtonState } from "./validate.js";
+import { updateProfileInfoOnPage } from "./profile.js";
 import {
-  getLocalProfileObject,
-  updateProfileFromServer,
-  updateProfileInfoOnPage,
-  setLocalProfileObject,
-  localProfileObject,
-} from "./profile.js";
-import {
-  getProfileDataFromServer,
   uploadUserProfileToServer,
   uploadNewAvatar,
-  setLikeOnCard,
-  removeLikeFromCard,
   uploadCardOnServer,
 } from "./api.js";
 const showImagePopUp = document.querySelector(".popup_for-image");
@@ -25,8 +16,9 @@ const showPopUpImageCaption = showImagePopUp.querySelector(
 
 function resetPopUp(popUp) {
   const popupInputs = popUp.querySelectorAll(".popup__input");
+  const popUpForm = popUp.querySelector(".popup__form");
+  popUpForm.reset();
   popupInputs.forEach((inputElement) => {
-    inputElement.value = "";
     inputElement.classList.remove("popup__input_type_error");
   });
   const popupErrors = popUp.querySelectorAll(".popup__error");
@@ -34,7 +26,10 @@ function resetPopUp(popUp) {
     errorElement.classList.remove(".popup__error_visible");
     errorElement.textContent = "";
   });
+  const submitButton = popUp.querySelector(".popup__button");
+  toggleButtonState(popupInputs, submitButton, "popup__button_disabled");
 }
+
 function openPopUp(popUp) {
   popUp.classList.remove("popup_state_closed");
   popUp.classList.add("popup_state_opened");
@@ -60,9 +55,11 @@ async function uploadProfileData(profileObject) {
 
 function showLoadingAnimationOnButton(buttonElement) {
   buttonElement.classList.add("popup__button_loading");
+  buttonElement.disabled = true;
 }
 function hideLoadingAnimationOnButton(buttonElement) {
   buttonElement.classList.remove("popup__button_loading");
+  buttonElement.disabled = false;
 }
 
 const editProfilePopUp = document.querySelector(".popup_for-editing-profile");
@@ -75,7 +72,6 @@ function setNameAndAboutToEditPopUp(name, about) {
   popUpAboutInput.value = about;
 }
 const handleEditProfilePopUp = function () {
-  const closeButton = editProfilePopUp.querySelector(".popup__close-btn");
   const saveButton = editProfilePopUp.querySelector(".popup__button");
   const editProfilePopUpForm = editProfilePopUp.querySelector(".popup__form");
   editProfilePopUpForm.addEventListener("submit", async function (evt) {
@@ -165,7 +161,7 @@ function handleCloseButtonsAndPopUpOverlay() {
   closeButtons.forEach((button) => {
     const popup = button.closest(".popup");
     popup.addEventListener("click", (evt) => {
-      if (event.target.classList.contains("popup")) {
+      if (evt.target.classList.contains("popup")) {
         closePopUp(popup);
       }
     });

@@ -11,10 +11,10 @@ module.exports = {
     filename: "main.js",
     publicPath: "",
   },
-  // optimization: {
-  //   minimize: false,
-  // },
-  // devtool: "source-map",
+  optimization: {
+    minimize: false,
+  },
+  devtool: "source-map",
   mode: "development",
   devServer: {
     static: path.resolve(__dirname, "./dist"),
@@ -24,11 +24,11 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        use: "babel-loader",
-        exclude: "/node_modules/",
-      },
+      // {
+      //   test: /\.js$/,
+      //   use: "babel-loader",
+      //   exclude: "/node_modules/",
+      // },
       {
         test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
         type: "asset/resource",
@@ -58,8 +58,8 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
-    // new webpack.SourceMapDevToolPlugin({
-    //   filename: "[file].map",
-    // }),
+    new webpack.SourceMapDevToolPlugin({
+      filename: "[file].map",
+    }),
   ],
 };
